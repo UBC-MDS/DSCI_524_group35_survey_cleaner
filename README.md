@@ -5,14 +5,12 @@
 | Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/survey_cleaner.svg)](https://pypi.org/project/survey_cleaner/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/survey_cleaner.svg)](https://pypi.org/project/survey_cleaner/)  |
 | Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
 
-*TODO: the above badges that indicate python version and package version will only work if your package is on PyPI.
-If you don't plan to publish to PyPI, you can remove them.*
 
-survey_cleaner is a project that (describe what it does here).
+survey_cleaner is a project that aims to streamline the process of cleaning survey data by automating common cleaning tasks. Designed to generalize to survey data on different topics, survey_cleaner provides functions to remove duplicate responses, remove unnecessary whitespaces, normalize responses to binary format, and convert ordinal-type responses to numeric data. The package sets up a standardized cleaning framework that can be carried across multiple projects and helps users to reduce manual preprocessing time and minimize errors.
 
 ## Functions
 
-- **normalize_number**: converts numerical responses that have been written as a word to numerical format ("one" to 1).
+- **remove_duplicates**: keeps only the latest survey response from each individual.
 - **clean_whitespace**: removes any leading or trailing whitespace in
 responses and also double spaces within text.
 - **normalize_binary**: converts binary responses such as True and False, T and F, or Yes and No to a binary format (0 and 1).
