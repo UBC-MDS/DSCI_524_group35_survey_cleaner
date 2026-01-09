@@ -10,6 +10,14 @@ If you don't plan to publish to PyPI, you can remove them.*
 
 survey_cleaner is a project that (describe what it does here).
 
+## Functions
+
+- **normalize_number**: converts numerical responses that have been written as a word to numerical format ("one" to 1).
+- **clean_whitespace**: removes any leading or trailing whitespace in
+responses and also double spaces within text.
+- **normalize_binary**: converts binary responses such as True and False, T and F, or Yes and No to a binary format (0 and 1).
+- **word_to_ordinal**: gives ranking words such as Best, Better, Good, Bad, Worst a numerical rating so that responses can be organized by their numerical values.
+
 ## Contributors
 Natalie Truesdell, Amanpreet Binepal, Jay Li, Junli
 
