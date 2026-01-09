@@ -32,9 +32,9 @@ Functions
 ---------
 normalize_binary : Convert binary responses to 0/1 format
 word_to_ordinal : Convert categorical text to ordinal numbers
-clean_whitespace : Normalize whitespace in text responses
+handle_emptyStrings : Normalize whitespace in text responses
 remove_duplicates : Keep only latest survey response from user
 """
 
 from .word_to_ordinal import word_to_ordinal
-from .clean_whitespace import clean_whitespace
+from .handle_emptyStrings import handle_emptyStrings

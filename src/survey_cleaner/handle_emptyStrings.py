@@ -6,7 +6,7 @@ including collapsing multiple spaces and removing leading/trailing whitespace.
 """
 
 
-def clean_whitespace(text):
+def handle_emptyStrings(text):
     """
     Clean and normalize whitespace in text input.
 
@@ -32,28 +32,28 @@ def clean_whitespace(text):
 
     Examples
     --------
-    >>> clean_whitespace("  Hello   World  ")
+    >>> handle_emptyStrings("  Hello   World  ")
     'Hello World'
 
-    >>> clean_whitespace("Hello\\n\\nWorld")
+    >>> handle_emptyStrings("Hello\\n\\nWorld")
     'Hello World'
 
-    >>> clean_whitespace("Hello\\t\\tWorld")
+    >>> handle_emptyStrings("Hello\\t\\tWorld")
     'Hello World'
 
-    >>> clean_whitespace("   Multiple   spaces   between   words   ")
+    >>> handle_emptyStrings("   Multiple   spaces   between   words   ")
     'Multiple spaces between words'
 
-    >>> clean_whitespace(None)
+    >>> handle_emptyStrings(None)
     None
 
-    >>> clean_whitespace("")
+    >>>handle_emptyStrings("")
     ''
 
-    >>> clean_whitespace("NoWhitespace")
+    >>> handle_emptyStrings("NoWhitespace")
     'NoWhitespace'
 
-    >>> clean_whitespace(123)
+    >>> handle_emptyStrings(123)
     Traceback (most recent call last):
         ...
     TypeError: Input must be a string or None, not int
