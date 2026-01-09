@@ -18,6 +18,10 @@ responses and also double spaces within text.
 - **normalize_binary**: converts binary responses such as True and False, T and F, or Yes and No to a binary format (0 and 1).
 - **word_to_ordinal**: gives ranking words such as Best, Better, Good, Bad, Worst a numerical rating so that responses can be organized by their numerical values.
 
+## Python Ecosystem
+
+While there are a number of text cleaning packages available on PyPi such as [clean-text](https://pypi.org/project/clean-text/) which preprocesses raw text data on the web, there is no package that is specifically dedicated to cleaning survey response data which is something the `survey_cleaner` package addresses.
+
 ## Contributors
 Natalie Truesdell, Amanpreet Binepal, Jay Li, Junli
 
