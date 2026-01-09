@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2026 Natalie Truesdell
+# Copyright (c) 2026 Natalie Truesdell, Amanpreet Binepal, Yusheng Li, Junli Liu
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -22,10 +22,19 @@
 # SOFTWARE.
 
 """
-Add a docstring here for the init module.
+survey_cleaner: A Python package for cleaning survey response data.
 
-This might include a very brief description of the package,
-its purpose, and any important notes.
+This package provides tools for standardizing and cleaning various types
+of survey responses, including binary responses, ordinal scales, numeric
+text, and whitespace normalization.
+
+Functions
+---------
+normalize_binary : Convert binary responses to 0/1 format
+word_to_ordinal : Convert categorical text to ordinal numbers
+clean_whitespace : Normalize whitespace in text responses
+normalize_number : Convert word numbers to numeric format
 """
 
 from .word_to_ordinal import word_to_ordinal
+from .clean_whitespace import clean_whitespace
