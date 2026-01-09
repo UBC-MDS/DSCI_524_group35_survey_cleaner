@@ -31,8 +31,6 @@ You can install this package into your preferred Python environment using pip:
 $ pip install survey_cleaner
 ```
 
-TODO: Add a brief example of how to use the package to this section
-
 To use survey_cleaner in your code:
 
 ```python
@@ -40,7 +38,26 @@ To use survey_cleaner in your code:
 >>> survey_cleaner.hello_world()
 ```
 
+Example usage of survey_cleaner in your code:
+```python
+>>> import pandas as pd
+>>> from survey_cleaner import remove_duplicates
+
+>>> responses = pd.DataFrame({
+     'respondent_id': [1, 2, 1, 3],
+     'completed_at': ['2024-01-01 10:00', '2024-01-01 11:00', 
+                      '2024-01-01 12:00', '2024-01-01 13:00'],
+     'answer': ['Yes', 'No', 'Maybe', 'Yes']
+ })
+ 
+>>> remove_duplicates(responses, 'respondent_id', 'completed_at')
+   respondent_id        completed_at answer
+1              2 2024-01-01 11:00:00     No
+2              1 2024-01-01 12:00:00  Maybe
+3              3 2024-01-01 13:00:00    Yes
+```
+
 ## Copyright
 
-- Copyright © 2026 Natalie Truesdell.
+- Copyright © 2026 Natalie Truesdell, Amanpreet Binepal, Jay Li, Junli.
 - Free software distributed under the [MIT License](./LICENSE).
