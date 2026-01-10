@@ -11,8 +11,7 @@ survey_cleaner is a project that aims to streamline the process of cleaning surv
 ## Functions
 
 - **remove_duplicates**: keeps only the latest survey response from each individual.
-- **clean_whitespace**: removes any leading or trailing whitespace in
-responses and also double spaces within text.
+- **handle_emptyStrings**: handle None, raise TypeError for non-string inputs, collapse all whitespace into single spaces and strip leading/trailing whitespace, and write the corresponding docstring.
 - **normalize_binary**: converts binary responses such as True and False, T and F, or Yes and No to a binary format (0 and 1).
 - **word_to_ordinal**: gives ranking words such as Best, Better, Good, Bad, Worst a numerical rating so that responses can be organized by their numerical values.
 
