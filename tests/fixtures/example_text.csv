@@ -1,0 +1,5 @@
+respondent_id,completed_at,answer
+   1,2024-01-01 10:00,Yes
+   2,2024-01-01 11:00,No
+   1,2024-01-01 12:00,Maybe
+   3,2024-01-01 13:00,Yes

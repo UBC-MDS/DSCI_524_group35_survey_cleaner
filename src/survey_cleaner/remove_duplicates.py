@@ -32,4 +32,18 @@ def remove_duplicates(responses, id_col, datetime_col):
     2              1 2024-01-01 12:00:00  Maybe
     3              3 2024-01-01 13:00:00    Yes
     """
+    # Input type validation
+    if not isinstance(responses, pd.DataFrame):
+        raise TypeError("responses must be a pandas DataFrame")
+    if not isinstance(id_col, str):
+        raise TypeError("id_col must be a string")
+    if not isinstance(datetime_col, str):
+        raise TypeError("datetime_col must be a string")
+
+    # Test that columns exist in the dataframe
+    if id_col not in responses.columns:
+        raise KeyError(f"id_col '{id_col}' doesn't exist in the DataFrame")
+    if datetime_col not in responses.columns:
+        raise KeyError(f"datetime_col '{datetime_col}' doesn't exist in the DataFrame")
+
     pass
