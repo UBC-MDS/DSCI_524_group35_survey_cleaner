@@ -18,7 +18,7 @@ version = "0.1.0"
 description = "A package with functions created to clean survey data with a focus on text input."
 authors = [
     { name = "Natalie Truesdell", email = "natalieetruesdell@gmail.com" },
-    { name = "Amanpreet Binepal, email = "binepal2003@gmail.com" },
+    { name = "Amanpreet Binepal", email = "binepal2003@gmail.com" },
     { name = "Yusheng Li", email = "lyusheng0606@gmail.com"},
     { name = "Junli Liu", email = "liujunli1001@gmail.com"}
 ]
