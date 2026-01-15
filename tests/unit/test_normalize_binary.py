@@ -22,3 +22,25 @@ def test_normalize_binary_true(true_input_response, true_expected_response):
     are inputted.
     """
     assert normalize_binary(true_input_response) == true_expected_response
+
+
+@pytest.mark.parametrize(
+    "false_input_response, false_expected_response",
+    [
+        (False, 0),
+        ("F", 0),
+        ("f", 0),
+        ("No", 0),
+        ("no", 0),
+        ("False", 0),
+        ("false", 0),
+        (0, 0)
+    ]
+)
+
+def test_normalize_binary_false(false_input_response, false_expected_response):
+    """
+    test normalize_binary checking if input values return 0 when False values
+    are inputted.
+    """
+    assert normalize_binary(false_input_response) == false_expected_response
