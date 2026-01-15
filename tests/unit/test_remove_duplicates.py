@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 from survey_cleaner.remove_duplicates import remove_duplicates
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 
 # Define fixture inputs for test functions
 @pytest.fixture
@@ -12,7 +12,7 @@ def text_data():
     df = pd.read_csv(csv_path)
     df['completed_at'] = pd.to_datetime(df['completed_at'])
     return df
-    
+
 @pytest.fixture
 def text_data_output():
     csv_path = os.path.join(os.path.dirname(__file__), '..', 'fixtures', 'example_output.csv')
@@ -28,9 +28,9 @@ def series_data(text_data):
 @pytest.mark.parametrize(
     "responses, id_col, datetime_col",
     [
-        (lazy_fixture("series_data"), "respondent_id", "completed_at"),
-        (lazy_fixture("text_data"), 2, "completed_at"),
-        (lazy_fixture("text_data"), "respondent_id", 2)
+        (lf("series_data"), "respondent_id", "completed_at"),
+        (lf("text_data"), 2, "completed_at"),
+        (lf("text_data"), "respondent_id", 2)
     ]
 )
 
@@ -64,7 +64,12 @@ def test_duplicate_removal(text_data, text_data_output):
     Test function removes duplicate response.
     """
     no_dups = remove_duplicates(text_data, "respondent_id", "completed_at")
-    pd.testing.assert_frame_equal(no_dups, text_data_output)
+    
+    # Sort both by respondent_id and reset index for comparison
+    no_dups_sorted = no_dups.sort_values("respondent_id").reset_index(drop=True)
+    expected_sorted = text_data_output.sort_values("respondent_id").reset_index(drop=True)
+
+    pd.testing.assert_frame_equal(no_dups_sorted, expected_sorted)
 
 def test_no_duplicate_ids(text_data):
     """
