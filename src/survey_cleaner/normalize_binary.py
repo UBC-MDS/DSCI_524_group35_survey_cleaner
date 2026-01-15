@@ -40,4 +40,29 @@ def normalize_binary(response):
     0
 
     """
-    pass
+    if isinstance(response, bool):
+        return int(response)
+
+    if isinstance(response, int):
+        if response == 0 or response == 1:
+            return response
+        else:
+            raise ValueError("Integer responses must be 0 (False) or 1 (True)")
+
+    if isinstance(response, str):
+        valid_true_responses = {"true", "t", "yes"}
+        valid_false_responses = {"false", "f", "no"}
+        if not response:
+            raise ValueError("String responses cannot be empty")
+        if any(c.isspace() for c in response):
+            raise ValueError("String responses cannot have whitespace")
+        lower_response = response.lower()
+        if lower_response in valid_true_responses:
+            return 1
+        elif lower_response in valid_false_responses:
+            return 0
+        else:
+            raise ValueError("Invalid string response: (must be one of 'Yes', 'No', 'True', 'False', 'T', 'F')")
+
+    raise ValueError("Invalid response format (Must be boolean, 0 or 1 integer, or the following strings: 'Yes', 'No', 'True', 'False', 'T', 'F')")
+
