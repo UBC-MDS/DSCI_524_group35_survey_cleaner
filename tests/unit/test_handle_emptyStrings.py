@@ -6,7 +6,7 @@ which normalizes whitespace in survey response text data.
 """
 
 import pytest
-from survey_cleaner.chandle_emptyStrings import handle_emptyStrings
+from survey_cleaner.handle_emptyStrings import handle_emptyStrings
 
 
 def test_handle_emptyStrings_removes_leading_and_trailing():
