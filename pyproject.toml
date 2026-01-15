@@ -74,6 +74,7 @@ tests = [
     "pytest-raises",
     "pytest-randomly",
     "pytest-xdist",
+    "pytest-lazy-fixtures"
 ]
 
 
