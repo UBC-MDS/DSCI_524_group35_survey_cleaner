@@ -44,3 +44,25 @@ def test_normalize_binary_false(false_input_response, false_expected_response):
     are inputted.
     """
     assert normalize_binary(false_input_response) == false_expected_response
+
+
+@pytest.mark.parametrize(
+    "invalid_input_response",
+    [
+        (""),
+        (" "),
+        (None),
+        (-1),
+        (" No "),
+        (" No"),
+        ("No "),
+        ("maybe")
+    ]
+)
+
+def test_normalize_binary_invalid(invalid_input_response):
+    """
+    test normalize_binary checking if any input values are invalid
+    """
+    with pytest.raises(ValueError):
+        normalize_binary(invalid_input_response)
