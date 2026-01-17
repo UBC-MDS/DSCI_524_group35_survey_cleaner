@@ -59,4 +59,18 @@ def handle_emptyStrings(text):
     TypeError: Input must be a string or None, not int
 
     """
-    pass
+    # Type checking: ensure input is either a string or None
+    if text is not None and not isinstance(text, str):
+        raise TypeError(f"Input must be a string or None, not {type(text).__name__}")
+
+    # Handle None input
+    if text is None:
+        return None
+
+    # Normalize whitespace:
+    # - split() without arguments splits on any whitespace (space, tab, newline, etc.)
+    #   and automatically removes leading/trailing whitespace
+    # - join(' ') reconnects the words with single spaces
+    # This handles all edge cases: leading/trailing whitespace, multiple spaces,
+    # tabs, newlines, and combinations of whitespace characters
+    return ' '.join(text.split())
