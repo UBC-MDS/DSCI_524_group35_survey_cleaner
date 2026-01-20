@@ -1,8 +1,9 @@
 import pandas as pd
 
 
-def word_to_ordinal(data, mapping=None,
-                    likert=None, case_insensitive=True):
+def word_to_ordinal(
+    data, mapping=None, likert=None, case_insensitive=True
+):
     """
     Convert a list of text responses to ordinal values
     based on a mapping or a pre-defined scale.
@@ -13,21 +14,19 @@ def word_to_ordinal(data, mapping=None,
 
     Parameters
     ----------
-    data : list of str
+    data : list of str or pd.Series
         A list of string responses to be converted.
     mapping : dict, optional
         A dictionary mapping text categories (str) to ordinal numbers (int).
         If None, `likert` must be provided.
     likert : str, optional
         The name of a pre-defined likert scale to use. Supported types:
-        - "agreement": {"Strongly Agree": 5, "Agree": 4, "Neutral": 3,
-                       "Disagree": 2, "Strongly Disagree": 1}
-        - "satisfaction": {"Very Satisfied": 5, "Satisfied": 4, "Neutral": 3,
-                           "Dissatisfied": 2, "Very Dissatisfied": 1}
-        - "frequency": {"Always": 5, "Often": 4, "Sometimes": 3,
-                        "Rarely": 2, "Never": 1}
-        - "likelihood": {"Very Likely": 5, "Likely": 4, "Neutral": 3,
-                         "Unlikely": 2, "Very Unlikely": 1}
+        
+        - "agreement": {"Strongly Agree": 5, "Agree": 4, ...}
+        - "satisfaction": {"Very Satisfied": 5, "Satisfied": 4, ...}
+        - "frequency": {"Always": 5, "Often": 4, ...}
+        - "likelihood": {"Very Likely": 5, "Likely": 4, ...}
+        
         If None, `mapping` must be provided.
     case_insensitive : bool, default True
         If True, the conversion will ignore case differences between `data`
@@ -35,15 +34,16 @@ def word_to_ordinal(data, mapping=None,
 
     Returns
     -------
-    list of pd.Series
+    list or pd.Series
         Converted ordinal values.
 
     Raises
     ------
     ValueError
-        If neither `mapping` nor `scale_type` is provided,
-        Or if both are provided.
+        If neither `mapping` nor `likert` is provided, or if both are provided.
         If a value in `data` acts as a key that is not found in the mapping.
+    TypeError
+        If input data is not a list or pandas Series.
 
     Examples
     --------
@@ -51,10 +51,10 @@ def word_to_ordinal(data, mapping=None,
     >>> word_to_ordinal(["Good", "Bad"], mapping={"Good": 1, "Bad": 0})
     [1, 0]
 
-    >>> # Example 2: Using a built-in scale (Case insensitive by default)
-    >>> feedback = ["Very Good", "bad"]
-    >>> word_to_ordinal(feedback, scale_type="likert_5")
-    [5, 2]
+    >>> # Example 2: Using a built-in scale
+    >>> feedback = ["Strongly Agree", "Agree"]
+    >>> word_to_ordinal(feedback, likert="agreement")
+    [5, 4]
     """
     # 1. Input Validation
     if not isinstance(data, (list, pd.Series)):
