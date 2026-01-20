@@ -36,7 +36,10 @@ classifiers = [
 # TODO: add keywords
 keywords = []
 # TODO: add dependencies
-dependencies = []
+dependencies = [
+    "pandas>=2.1.4",
+    "numpy>=1.26.4"
+]
 
 [project.urls]
 Homepage = "https://github.com/UBC-MDS/DSCI_542_group35_survey_cleaner"
