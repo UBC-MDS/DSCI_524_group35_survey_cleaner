@@ -84,3 +84,16 @@ def test_same_columns(text_data):
     """
     no_dups = remove_duplicates(text_data, "respondent_id", "completed_at")
     assert list(no_dups.columns) == list(text_data.columns)
+
+
+def test_empty_dataframe():
+    """
+    Test that function handles empty DataFrame correctly.
+
+    When given an empty DataFrame, the function should return an empty
+    DataFrame without raising errors.
+    """
+    empty_df = pd.DataFrame(columns=["respondent_id", "completed_at", "answer"])
+    result = remove_duplicates(empty_df, "respondent_id", "completed_at")
+    assert result.empty
+    assert list(result.columns) == ["respondent_id", "completed_at", "answer"]

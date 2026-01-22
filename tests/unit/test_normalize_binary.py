@@ -72,3 +72,16 @@ def test_normalize_binary_invalid(invalid_input_response):
     """
     with pytest.raises(ValueError):
         normalize_binary(invalid_input_response)
+
+
+def test_normalize_binary_float_input():
+    """
+    Test that float input raises ValueError.
+
+    The function should only accept bool, int (0 or 1), or specific string values.
+    Float inputs should be rejected with a clear error message.
+    """
+    with pytest.raises(ValueError, match="Invalid response format"):
+        normalize_binary(1.0)
+    with pytest.raises(ValueError, match="Invalid response format"):
+        normalize_binary(0.5)
