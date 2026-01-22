@@ -1,0 +1,74 @@
+# handle_emptyStrings.handle_emptyStrings { #survey_cleaner.handle_emptyStrings.handle_emptyStrings }
+
+```python
+handle_emptyStrings.handle_emptyStrings(text)
+```
+
+Clean and normalize whitespace in text input.
+
+This function removes leading and trailing whitespace and collapses
+all internal sequences of whitespace characters (spaces, tabs, newlines)
+into single spaces. This is particularly useful for cleaning free-text
+survey responses that may contain inconsistent formatting.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name   | Type        | Description                                                               | Default    |
+|--------|-------------|---------------------------------------------------------------------------|------------|
+| text   | str or None | The text string to clean. If None is provided, the function returns None. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type        | Description                                                                 |
+|--------|-------------|-----------------------------------------------------------------------------|
+|        | str or None | The cleaned text with normalized whitespace. Returns None if input is None. |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type      | Description                           |
+|--------|-----------|---------------------------------------|
+|        | TypeError | If the input is not a string or None. |
+
+## Examples {.doc-section .doc-section-examples}
+
+```python
+>>> handle_emptyStrings("  Hello   World  ")
+'Hello World'
+```
+
+```python
+>>> handle_emptyStrings("Hello\n\nWorld")
+'Hello World'
+```
+
+```python
+>>> handle_emptyStrings("Hello\t\tWorld")
+'Hello World'
+```
+
+```python
+>>> handle_emptyStrings("   Multiple   spaces   between   words   ")
+'Multiple spaces between words'
+```
+
+```python
+>>> handle_emptyStrings(None)
+None
+```
+
+```python
+>>>handle_emptyStrings("")
+''
+```
+
+```python
+>>> handle_emptyStrings("NoWhitespace")
+'NoWhitespace'
+```
+
+```python
+>>> handle_emptyStrings(123)
+Traceback (most recent call last):
+    ...
+TypeError: Input must be a string or None, not int
+```

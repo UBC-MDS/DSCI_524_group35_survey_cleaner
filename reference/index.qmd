@@ -1,0 +1,12 @@
+# Function reference {.doc .doc-index}
+
+## Survey Cleaner
+
+Functions to help you clean survey data.
+
+| | |
+| --- | --- |
+| [handle_emptyStrings.handle_emptyStrings](handle_emptyStrings.handle_emptyStrings.qmd#survey_cleaner.handle_emptyStrings.handle_emptyStrings) | Clean and normalize whitespace in text input. |
+| [normalize_binary.normalize_binary](normalize_binary.normalize_binary.qmd#survey_cleaner.normalize_binary.normalize_binary) | Convert response to binary format (0 or 1). |
+| [remove_duplicates.remove_duplicates](remove_duplicates.remove_duplicates.qmd#survey_cleaner.remove_duplicates.remove_duplicates) | Remove duplicate responses from a DataFrame containing survey data. |
+| [word_to_ordinal.word_to_ordinal](word_to_ordinal.word_to_ordinal.qmd#survey_cleaner.word_to_ordinal.word_to_ordinal) | Convert a list of text responses to ordinal values |
