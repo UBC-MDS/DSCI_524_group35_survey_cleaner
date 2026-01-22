@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Vancouver Survival"
+  title: "Survey Cleaner"
   navbar:
     left:
       - text: "Reference"
