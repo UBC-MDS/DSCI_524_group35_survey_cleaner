@@ -27,7 +27,7 @@ jobs:
 
       - name: Build package using Hatch
         run: |
-            hatch run build:check
+            hatch build
 
             echo ""
             echo "Generated files:"
