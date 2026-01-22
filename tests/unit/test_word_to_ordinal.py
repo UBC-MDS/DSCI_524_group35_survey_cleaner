@@ -75,3 +75,18 @@ def test_custom_mapping():
     mapping = {"High": 10, "Low": 0}
     expected = [10, 0]
     assert word_to_ordinal(data, mapping=mapping) == expected
+
+
+def test_case_sensitive_mapping():
+    """Test case_insensitive=False requires exact case match."""
+    data = ["Good", "Bad"]
+    mapping = {"Good": 1, "Bad": 0}
+
+    # Should work with exact case match
+    result = word_to_ordinal(data, mapping=mapping, case_insensitive=False)
+    assert result == [1, 0]
+
+    # Should fail with mismatched case
+    data_lowercase = ["good", "bad"]
+    with pytest.raises(ValueError, match="Values not found in mapping"):
+        word_to_ordinal(data_lowercase, mapping=mapping, case_insensitive=False)

@@ -59,3 +59,10 @@ def test_handle_emptyStrings_handles_string_with_no_whitespace():
     assert handle_emptyStrings("NoWhitespace") == "NoWhitespace"
     assert handle_emptyStrings("SingleWord") == "SingleWord"
     assert handle_emptyStrings("123") == "123"
+
+
+def test_handle_emptyStrings_mixed_special_whitespace():
+    """Test handling of mixed special characters with various whitespace types."""
+    assert handle_emptyStrings("  @#$%  \t  ^&*  \n  ()  ") == "@#$% ^&* ()"
+    assert handle_emptyStrings("\t\n  Hello!@#  \t\n  World?  \n\t") == "Hello!@# World?"
+    assert handle_emptyStrings("  123  \n\n  456  \t\t  789  ") == "123 456 789"
