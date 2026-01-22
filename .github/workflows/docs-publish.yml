@@ -1,0 +1,42 @@
+# Demonstrates building API documentation using quartodoc and 
+# rendering a Quarto website + publishing it on gh-pages, triggered on pull requests.
+name: 03b-quartodoc-publish
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install -e ".[docs]"
+          #pip install quartodoc
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Build quartodoc
+        run: |
+          quartodoc build --verbose
+
+      - name: Render Quarto site
+        run: |
+          quarto render
+  
+      - name: Publish to gh-pages branch
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
