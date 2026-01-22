@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Vancouver Survival"
+  navbar:
+    left:
+      - text: "Reference"
+        href: reference/index.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+
+quartodoc:
+  package: survey_cleaner
+  dir: reference
+  sections:
+    - title: Survey Cleaner
+      desc: Functions to help you clean survey data.
+      contents:
+        - handle_emptyStrings.handle_emptyStrings
+        - normalize_binary.normalize_binary
+        - remove_duplicates.remove_duplicates
+        - word_to_ordinal.word_to_ordinal
