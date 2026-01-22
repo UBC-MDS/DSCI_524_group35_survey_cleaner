@@ -1,0 +1,54 @@
+# word_to_ordinal.word_to_ordinal { #survey_cleaner.word_to_ordinal.word_to_ordinal }
+
+```python
+word_to_ordinal.word_to_ordinal(
+    data,
+    mapping=None,
+    likert=None,
+    case_insensitive=True,
+)
+```
+
+Convert a list of text responses to ordinal values
+based on a mapping or a pre-defined scale.
+
+This function transforms qualitative string data (e.g., "Very Good") into
+quantitative numeric data. It supports custom mappings or built-in standard
+scales (Likert scales). It also handles case sensitivity robustness.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name             | Type                     | Description                                                                                                                                                                                                                                                                                                                  | Default    |
+|------------------|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| data             | list of str or pd.Series | A list of string responses to be converted.                                                                                                                                                                                                                                                                                  | _required_ |
+| mapping          | dict                     | A dictionary mapping text categories (str) to ordinal numbers (int). If None, `likert` must be provided.                                                                                                                                                                                                                     | `None`     |
+| likert           | str                      | The name of a pre-defined likert scale to use. Supported types:  - "agreement": {"Strongly Agree": 5, "Agree": 4, ...} - "satisfaction": {"Very Satisfied": 5, "Satisfied": 4, ...} - "frequency": {"Always": 5, "Often": 4, ...} - "likelihood": {"Very Likely": 5, "Likely": 4, ...}  If None, `mapping` must be provided. | `None`     |
+| case_insensitive | bool                     | If True, the conversion will ignore case differences between `data` and the `mapping` keys (e.g., "Good" maps to "good").                                                                                                                                                                                                    | `True`     |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type              | Description               |
+|--------|-------------------|---------------------------|
+|        | list or pd.Series | Converted ordinal values. |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                                                                                                                  |
+|--------|------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+|        | ValueError | If neither `mapping` nor `likert` is provided, or if both are provided. If a value in `data` acts as a key that is not found in the mapping. |
+|        | TypeError  | If input data is not a list or pandas Series.                                                                                                |
+
+## Examples {.doc-section .doc-section-examples}
+
+```python
+>>> # Example 1: Using a custom mapping
+>>> word_to_ordinal(["Good", "Bad"], mapping={"Good": 1, "Bad": 0})
+[1, 0]
+```
+
+```python
+>>> # Example 2: Using a built-in scale
+>>> feedback = ["Strongly Agree", "Agree"]
+>>> word_to_ordinal(feedback, likert="agreement")
+[5, 4]
+```

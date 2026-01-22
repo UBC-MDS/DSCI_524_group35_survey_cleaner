@@ -1,0 +1,38 @@
+# normalize_binary.normalize_binary { #survey_cleaner.normalize_binary.normalize_binary }
+
+```python
+normalize_binary.normalize_binary(response)
+```
+
+Convert response to binary format (0 or 1).
+
+Takes in a response such as True or False, T or F,
+Yes or No and converts it to a normalized binary
+format of 0 or 1.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name     | Type             | Description                                                                                                                                                                                               | Default    |
+|----------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| response | (bool, str, int) | The responses that must be normalized are: - Boolean: True, False - String: "T", "F", "Yes", "No", "True", "False" (case insensitive) The responses that don't have to be normalized are: - Integer: 0, 1 | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description                          |
+|--------|--------|--------------------------------------|
+|        | int    | 0 or 1; the normalized binary format |
+
+## Examples {.doc-section .doc-section-examples}
+
+```python
+>>> normalize_binary(True)
+1
+>>> normalize_binary("No")
+0
+>>> normalize_binary("T")
+1
+>>> normalize_binary(1)
+1
+>>> normalize_binary("False")
+0
+```

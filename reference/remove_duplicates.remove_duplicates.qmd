@@ -1,0 +1,39 @@
+# remove_duplicates.remove_duplicates { #survey_cleaner.remove_duplicates.remove_duplicates }
+
+```python
+remove_duplicates.remove_duplicates(responses, id_col, datetime_col)
+```
+
+Remove duplicate responses from a DataFrame containing survey data.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name         | Type         | Description                                                               | Default    |
+|--------------|--------------|---------------------------------------------------------------------------|------------|
+| responses    | pd.DataFrame | Pandas DataFrame to identify duplicate responses in.                      | _required_ |
+| id_col       | str          | Name of the column with the unique identifiers.                           | _required_ |
+| datetime_col | str          | Name of the column containing the datetime when the survey was completed. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type         | Description                                                                               |
+|--------|--------------|-------------------------------------------------------------------------------------------|
+|        | pd.DataFrame | Cleaned, shuffled survey data containing only the most recent entry from each individual. |
+
+## Examples {.doc-section .doc-section-examples}
+
+```python
+>>> import pandas as pd
+>>> df = pd.DataFrame({
+...     'respondent_id': [1, 2, 1, 3],
+...     'completed_at': ['2024-01-01 10:00', '2024-01-01 11:00', 
+...                      '2024-01-01 12:00', '2024-01-01 13:00'],
+...     'answer': ['Yes', 'No', 'Maybe', 'Yes']
+... })
+>>> df['completed_at'] = pd.to_datetime(df['completed_at'])
+>>> remove_duplicates(df, 'respondent_id', 'completed_at')
+   respondent_id        completed_at answer
+1              2 2024-01-01 11:00:00     No
+2              1 2024-01-01 12:00:00  Maybe
+3              3 2024-01-01 13:00:00    Yes
+```
