@@ -33,7 +33,6 @@ jobs:
             echo "Generated files:"
             ls -lh dist/
       
-      # 这里依然保留 upload-artifact，方便你在 GitHub Actions 页面手动下载检查构建产物
       - name: Store the distribution packages
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v4
         with:
