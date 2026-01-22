@@ -1,10 +1,11 @@
 name: Build Docs
 
 on:
-  pull_request:
   push:
     branches:
       - main
+  pull_request:
+
 
 jobs:
   build-docs:
@@ -22,6 +23,10 @@ jobs:
             python -m pip install --upgrade pip
             python -m pip install hatch
 
+      - name: Install Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: latest
+      
       - name: Build documentation using Hatch
-        run: |
-            hatch run docs:build
+        run: hatch run docs:build
