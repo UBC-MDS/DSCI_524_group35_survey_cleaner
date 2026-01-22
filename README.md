@@ -1,9 +1,9 @@
 # Welcome to survey_cleaner
 
-|        |        |
-|--------|--------|
-| Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/survey_cleaner.svg)](https://pypi.org/project/survey_cleaner/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/survey_cleaner.svg)](https://pypi.org/project/survey_cleaner/)  |
-| Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
+|   | |
+|---|---|
+| **Deployment** | [![Publish to TestPyPI](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml/badge.svg)](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml) |
+| **Meta** | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
 
 
 survey_cleaner is a project that aims to streamline the process of cleaning survey data by automating common cleaning tasks. Designed to generalize to survey data on different topics, survey_cleaner provides functions to remove duplicate responses, remove unnecessary whitespaces, normalize responses to binary format, and convert ordinal-type responses to numeric data. The package sets up a standardized cleaning framework that can be carried across multiple projects and helps users to reduce manual preprocessing time and minimize errors.
@@ -13,7 +13,7 @@ survey_cleaner is a project that aims to streamline the process of cleaning surv
 - **remove_duplicates**: keeps only the latest survey response from each individual.
 - **handle_emptyStrings**: handle None, raise TypeError for non-string inputs, collapse all whitespace into single spaces and strip leading/trailing whitespace, and write the corresponding docstring.
 - **normalize_binary**: converts binary responses such as True and False, T and F, or Yes and No to a binary format (0 and 1).
-- **word_to_ordinal**: gives ranking words such as Best, Better, Good, Bad, Worst a numerical rating so that responses can be organized by their numerical values.
+- **word_to_ordinal**: gives ranking words such as Best, Better, Good, Bad, Worst a numerical rating so that responses can be organized by their numerical values. Likert scale are set up as default rankings but users can also provide their own rankings.
 
 ## Python Ecosystem
 
