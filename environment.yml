@@ -1,0 +1,15 @@
+name: survey_cleaner
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - pandas>=2.1.4
+  - numpy>=1.26.4
+  - copier>=9.11.0
+  - pytest>=9.0.2
+  - pytest-cov>=7.0.0
+  - coverage>=7.10.6
+  - hatchling>=1.9.1
+  - hatch>=1.6.3
+
