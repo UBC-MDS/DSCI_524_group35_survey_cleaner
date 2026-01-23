@@ -245,3 +245,7 @@ cython_debug/
 _version.py
 
 /.quarto/
+
+**/*.quarto_ipynb
+
+docs/
