@@ -30,9 +30,26 @@ jobs:
         run: |
           pytest --cov --cov-report=term --cov-branch
 
+  style-check:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Check-out repository
+          uses: actions/checkout@v2
+
+        - name: Set up Python
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.12'
+
+        - name: Install ruff for style checking
+          run: pip install ruff
+        - name: Run ruff style check
+          run: ruff check src/
+
   build-deploy:
-  
-    needs: unit-tests
+
+    needs: [unit-tests, style-check]
     runs-on: ubuntu-latest
 
     steps:
@@ -72,7 +89,7 @@ jobs:
           repository-url: https://test.pypi.org/legacy/
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           # Skip if there is an existing version on Test PyPI
-          skip-existing: true 
+          skip-existing: true
 
       - name: Test install from TestPyPI
         run: |
