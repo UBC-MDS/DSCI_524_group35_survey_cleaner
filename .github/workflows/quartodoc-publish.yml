@@ -1,4 +1,4 @@
-# Demonstrates building API documentation using quartodoc and 
+# Demonstrates building API documentation using quartodoc and
 # rendering a Quarto website + publishing it on gh-pages, triggered on pull requests.
 name: quartodoc-publish
 
@@ -10,6 +10,8 @@ on:
 jobs:
   build-docs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
 
@@ -33,7 +35,7 @@ jobs:
       - name: Render Quarto site
         run: |
           quarto render
-  
+
       - name: Publish to gh-pages branch
         uses: quarto-dev/quarto-actions/publish@v2
         with:
