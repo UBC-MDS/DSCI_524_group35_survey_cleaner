@@ -55,6 +55,7 @@ Download = "https://pypi.org/project/DSCI_542_group35_survey_cleaner/#files"
 dev = [
     "hatch",
     "pre-commit",
+    "ruff"
 ]
 
 docs = [

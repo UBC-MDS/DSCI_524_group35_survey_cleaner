@@ -25,6 +25,11 @@ jobs:
             python -m pip install --upgrade pip
             python -m pip install hatch
 
+      - name: Install ruff for style checking
+        run: pip install ruff
+      - name: Run ruff style check
+        run: ruff check src/
+
       - name: Build package using Hatch
         run: |
             hatch build
@@ -32,7 +37,7 @@ jobs:
             echo ""
             echo "Generated files:"
             ls -lh dist/
-      
+
       - name: Store the distribution packages
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v4
         with:
