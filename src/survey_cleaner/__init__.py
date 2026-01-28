@@ -36,7 +36,5 @@ handle_emptyStrings : Normalize whitespace in text responses
 remove_duplicates : Keep only latest survey response from user
 """
 
-#from .word_to_ordinal import word_to_ordinal
-#from .handle_emptyStrings import handle_emptyStrings
-
+__version__ = "0.1.1"
 
