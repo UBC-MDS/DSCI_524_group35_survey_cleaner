@@ -119,28 +119,62 @@ This project follows the [GitHub Flow](https://guides.github.com/introduction/fl
    - All changes must go through a pull request
    - This ensures code review and maintains code quality
 
-### Commit Message Standards
+### Semantic Versioning & Commit Standards
 
-Write clear, meaningful commit messages that will be reviewed as part of the project evaluation:
+This project uses **[Python Semantic Release](https://python-semantic-release.readthedocs.io/en/stable/)** to automatically handle versioning, tagging, and changelog generation based on commit messages. To ensure this automation works, **all commit messages must follow the [Conventional Commits](https://www.conventionalcommits.org/) specification**.
 
-**Good commit messages:**
-- Use present tense, imperative mood (e.g., "Add function" not "Added function")
-- First line: concise summary (50 characters or less)
-- Add detailed description after a blank line if needed
+The format is: `<type>(<scope>): <description>`
 
-**Examples:**
-```
-Add normalize_binary function with full docstring
+#### Commit Types and Versioning
+
+| Commit Type | Release Type | SemVer Impact | Description |
+| :--- | :--- | :--- | :--- |
+| **`fix`** | **Patch** | `0.0.x` | Bug fixes that do not change API. |
+| **`feat`** | **Minor** | `0.x.0` | New features that are backward-compatible. |
+| **`perf`** | **Patch** | `0.0.x` | A code change that improves performance. |
+| **`BREAKING CHANGE`** | **Major** | `x.0.0` | **Any** change that breaks backward compatibility. Must appear in the footer. |
+| `docs` | None | - | Documentation only changes. |
+| `style` | None | - | Formatting, missing semi-colons, etc. |
+| `refactor` | None | - | Code change that neither fixes a bug nor adds a feature. |
+| `test` | None | - | Adding or correcting tests. |
+| `chore` | None | - | Maintenance tasks (CI, build, deps). |
+
+#### Examples
+
+**1. Minor Release (New Feature):**
+```text
+feat: add normalize_binary function
 
 - Implements conversion from True/False, Yes/No, T/F to 0/1
 - Includes parameter validation
-- Handles case-insensitive string inputs
+
+```
+
+**2. Patch Release (Bug Fix):**
+
+```text
+fix: resolve regex pattern error in email validator
+
+```
+
+**3. Major Release (Breaking Change):**
+To trigger a **Major** release (e.g., `1.0.0` to `2.0.0`), you must include `BREAKING CHANGE:` in the footer of your commit message, regardless of the commit type.
+
+```text
+feat: rewrite survey input parser
+
+The old parser has been removed and replaced with a new strict-mode parser.
+
+BREAKING CHANGE: The `parse_input()` function now accepts a DataFrame instead of a list.
+
 ```
 
 **Avoid vague messages like:**
-- "update"
-- "fix bug"
-- "wip"
+
+* "update"
+* "fix bug"
+* "wip"
+
 
 ### Pull Request Process
 
