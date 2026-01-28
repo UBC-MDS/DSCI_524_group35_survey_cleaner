@@ -41,7 +41,6 @@ jobs:
           files: ./coverage.xml
           use_oidc: true
           fail_ci_if_error: false 
-          verbose: true 
 
   style-check:
       runs-on: ubuntu-latest

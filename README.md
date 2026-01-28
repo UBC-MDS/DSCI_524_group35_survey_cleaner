@@ -1,22 +1,33 @@
 # Welcome to survey_cleaner
 
 ## Table of Contents
-- [Functions](#functions)
-- [Python Ecosystem](#python-ecosystem)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage Examples](#usage-examples)
-- [Developer Setup](#developer-setup)
-- [Build Documentation](#build-documentation)
-- [Deploy Documentation](#deploy-documentation-automated)
-- [Contributing](#contributing)
-- [Contributors](#contributors)
-- [License](#license)
+- [Welcome to survey\_cleaner](#welcome-to-survey_cleaner)
+  - [Table of Contents](#table-of-contents)
+  - [Functions](#functions)
+  - [Python Ecosystem](#python-ecosystem)
+  - [Installation](#installation)
+  - [Usage Examples:](#usage-examples)
+    - [Clean Whitespace](#clean-whitespace)
+    - [Normalize Binary Responses](#normalize-binary-responses)
+    - [Convert Ordinal Responses to Numeric](#convert-ordinal-responses-to-numeric)
+    - [Remove Duplicate Responses](#remove-duplicate-responses)
+  - [Developer Setup](#developer-setup)
+  - [Build Documentation](#build-documentation)
+    - [Building Documentation Locally](#building-documentation-locally)
+  - [Deploy Documentation](#deploy-documentation)
+    - [Workflow Overview](#workflow-overview)
+    - [Documentation Build Workflow](#documentation-build-workflow)
+    - [Documentation Publish Workflow](#documentation-publish-workflow)
+    - [Viewing Published Documentation](#viewing-published-documentation)
+  - [Contributing](#contributing)
+  - [Contributors](#contributors)
+  - [Copyright](#copyright)
 
 |   | |
 |---|---|
 | **Deployment** | [![Publish to TestPyPI](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml/badge.svg)](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml) |
 | **Meta** | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
+| **Codecov** |[![codecov](https://codecov.io/github/ubc-mds/dsci_524_group35_survey_cleaner/graph/badge.svg?token=fYoyXiBsXh)](https://codecov.io/github/ubc-mds/dsci_524_group35_survey_cleaner) |
 
 
 survey_cleaner is a project that aims to streamline the process of cleaning survey data by automating common cleaning tasks. Designed to generalize to survey data on different topics, survey_cleaner provides functions to remove duplicate responses, remove unnecessary whitespaces, normalize responses to binary format, and convert ordinal-type responses to numeric data. The package sets up a standardized cleaning framework that can be carried across multiple projects and helps users to reduce manual preprocessing time and minimize errors.
