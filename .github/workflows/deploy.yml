@@ -2,6 +2,8 @@ name: Deploy-test-Test PyPI
 
 on:
   push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -11,6 +13,9 @@ jobs:
   # Adoubt from 524-actiondemo
   unit-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
 
     steps:
       - name: Check-out repository
@@ -28,7 +33,14 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest --cov --cov-report=term --cov-branch
+          pytest --cov=survey_cleaner --cov-report=xml --cov-report=term --cov-branch
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: ./coverage.xml
+          use_oidc: true
+          fail_ci_if_error: false 
 
   style-check:
       runs-on: ubuntu-latest
@@ -51,6 +63,9 @@ jobs:
 
     needs: [unit-tests, style-check]
     runs-on: ubuntu-latest
+
+    # Add a condition to only run deploy on push to main branch (merge to main)
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     permissions:
       contents: read

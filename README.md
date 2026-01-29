@@ -1,22 +1,33 @@
 # Welcome to survey_cleaner
 
 ## Table of Contents
-- [Functions](#functions)
-- [Python Ecosystem](#python-ecosystem)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage Examples](#usage-examples)
-- [Developer Setup](#developer-setup)
-- [Build Documentation](#build-documentation)
-- [Deploy Documentation](#deploy-documentation-automated)
-- [Contributing](#contributing)
-- [Contributors](#contributors)
-- [License](#license)
+- [Welcome to survey\_cleaner](#welcome-to-survey_cleaner)
+  - [Table of Contents](#table-of-contents)
+  - [Functions](#functions)
+  - [Python Ecosystem](#python-ecosystem)
+  - [Installation](#installation)
+  - [Usage Examples:](#usage-examples)
+    - [Clean Whitespace](#clean-whitespace)
+    - [Normalize Binary Responses](#normalize-binary-responses)
+    - [Convert Ordinal Responses to Numeric](#convert-ordinal-responses-to-numeric)
+    - [Remove Duplicate Responses](#remove-duplicate-responses)
+  - [Developer Setup](#developer-setup)
+  - [Build Documentation](#build-documentation)
+    - [Building Documentation Locally](#building-documentation-locally)
+  - [Deploy Documentation](#deploy-documentation)
+    - [Workflow Overview](#workflow-overview)
+    - [Documentation Build Workflow](#documentation-build-workflow)
+    - [Documentation Publish Workflow](#documentation-publish-workflow)
+    - [Viewing Published Documentation](#viewing-published-documentation)
+  - [Contributing](#contributing)
+  - [Contributors](#contributors)
+  - [Copyright](#copyright)
 
-|   | |
-|---|---|
-| **Deployment** | [![Publish to TestPyPI](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml/badge.svg)](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml) |
-| **Meta** | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
+| | |
+| :--- | :--- |
+| **Testing** | [![CI](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/build.yml/badge.svg)](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/build.yml) [![CD](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml/badge.svg)](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml) [![codecov](https://codecov.io/github/ubc-mds/dsci_524_group35_survey_cleaner/graph/badge.svg?token=fYoyXiBsXh)](https://codecov.io/github/ubc-mds/dsci_524_group35_survey_cleaner) [![Docs](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/quartodoc-publish.yml/badge.svg)](https://ubc-mds.github.io/DSCI_524_group35_survey_cleaner/) |
+| **Package** | [![Test PyPI Latest Release](https://img.shields.io/badge/dynamic/json?url=https://test.pypi.org/pypi/survey-cleaner/json&query=%24.info.version&label=TestPyPI&color=green)](https://test.pypi.org/project/survey-cleaner/) [![GitHub Release](https://img.shields.io/github/v/release/UBC-MDS/DSCI_524_group35_survey_cleaner?color=green)](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/releases) [![Python Version](https://img.shields.io/badge/dynamic/json?url=https://test.pypi.org/pypi/survey-cleaner/json&query=%24.info.requires_python&label=Python&color=green)](https://test.pypi.org/project/survey-cleaner/) [![Repo Status](https://img.shields.io/badge/repo%20status-Active-brightgreen)](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner) |
+| **Meta** | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) [![License](https://img.shields.io/badge/dynamic/json?url=https://test.pypi.org/pypi/survey-cleaner/json&query=%24.info.license&label=License&color=blue)](https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/blob/main/LICENSE) |
 
 
 survey_cleaner is a project that aims to streamline the process of cleaning survey data by automating common cleaning tasks. Designed to generalize to survey data on different topics, survey_cleaner provides functions to remove duplicate responses, remove unnecessary whitespaces, normalize responses to binary format, and convert ordinal-type responses to numeric data. The package sets up a standardized cleaning framework that can be carried across multiple projects and helps users to reduce manual preprocessing time and minimize errors.
