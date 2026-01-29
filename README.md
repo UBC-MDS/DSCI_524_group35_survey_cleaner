@@ -91,8 +91,10 @@ df['response'] = df['response'].apply(normalize_binary)
 ```python
 from survey_cleaner import word_to_ordinal
 
-# Converts Best/Good/Bad/Worst to numeric ratings
-df['rating'] = word_to_ordinal(df['rating'])
+# Customized mapping
+word_to_ordinal(feedback, mapping={"Good": 1, "Bad": 0})
+# Using default Likert scale
+word_to_ordinal(feedback, likert="agreement")
 ```
 ### Remove Duplicate Responses
 ```python
