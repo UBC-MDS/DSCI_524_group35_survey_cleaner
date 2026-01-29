@@ -207,27 +207,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ul>
+<li><a href="#welcome-to-survey_cleaner">Welcome to survey_cleaner</a>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
 <li><a href="#functions">Functions</a></li>
 <li><a href="#python-ecosystem">Python Ecosystem</a></li>
-<li><a href="#requirements">Requirements</a></li>
 <li><a href="#installation">Installation</a></li>
-<li><a href="#usage-examples">Usage Examples</a></li>
+<li><a href="#usage-examples">Usage Examples:</a>
+<ul>
+<li><a href="#clean-whitespace">Clean Whitespace</a></li>
+<li><a href="#normalize-binary-responses">Normalize Binary Responses</a></li>
+<li><a href="#convert-ordinal-responses-to-numeric">Convert Ordinal Responses to Numeric</a></li>
+<li><a href="#remove-duplicate-responses">Remove Duplicate Responses</a></li>
+</ul></li>
 <li><a href="#developer-setup">Developer Setup</a></li>
-<li><a href="#build-documentation">Build Documentation</a></li>
-<li><a href="#deploy-documentation-automated">Deploy Documentation</a></li>
+<li><a href="#build-documentation">Build Documentation</a>
+<ul>
+<li><a href="#building-documentation-locally">Building Documentation Locally</a></li>
+</ul></li>
+<li><a href="#deploy-documentation">Deploy Documentation</a>
+<ul>
+<li><a href="#workflow-overview">Workflow Overview</a></li>
+<li><a href="#documentation-build-workflow">Documentation Build Workflow</a></li>
+<li><a href="#documentation-publish-workflow">Documentation Publish Workflow</a></li>
+<li><a href="#viewing-published-documentation">Viewing Published Documentation</a></li>
+</ul></li>
 <li><a href="#contributing">Contributing</a></li>
 <li><a href="#contributors">Contributors</a></li>
-<li><a href="#license">License</a></li>
+<li><a href="#copyright">Copyright</a></li>
+</ul></li>
 </ul>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
-<td><strong>Deployment</strong></td>
-<td><a href="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml"><img src="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml/badge.svg" class="img-fluid" alt="Publish to TestPyPI"></a></td>
+<td style="text-align: left;"><strong>Testing</strong></td>
+<td style="text-align: left;"><a href="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/build.yml"><img src="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/build.yml/badge.svg" class="img-fluid" alt="CI"></a> <a href="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml"><img src="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml/badge.svg" class="img-fluid" alt="CD"></a> <a href="https://codecov.io/github/ubc-mds/dsci_524_group35_survey_cleaner"><img src="https://codecov.io/github/ubc-mds/dsci_524_group35_survey_cleaner/graph/badge.svg?token=fYoyXiBsXh" class="img-fluid" alt="codecov"></a> <a href="https://ubc-mds.github.io/DSCI_524_group35_survey_cleaner/"><img src="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/quartodoc-publish.yml/badge.svg" class="img-fluid" alt="Docs"></a></td>
 </tr>
 <tr class="even">
-<td><strong>Meta</strong></td>
-<td><a href="./CODE_OF_CONDUCT.html"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" class="img-fluid" alt="Code of Conduct"></a></td>
+<td style="text-align: left;"><strong>Package</strong></td>
+<td style="text-align: left;"><a href="https://test.pypi.org/project/survey-cleaner/"><img src="https://img.shields.io/badge/dynamic/json?url=https://test.pypi.org/pypi/survey-cleaner/json&amp;query=%24.info.version&amp;label=TestPyPI&amp;color=green" class="img-fluid" alt="Test PyPI Latest Release"></a> <a href="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/releases"><img src="https://img.shields.io/github/v/release/UBC-MDS/DSCI_524_group35_survey_cleaner?color=green.png" class="img-fluid" alt="GitHub Release"></a> <a href="https://test.pypi.org/project/survey-cleaner/"><img src="https://img.shields.io/badge/dynamic/json?url=https://test.pypi.org/pypi/survey-cleaner/json&amp;query=%24.info.requires_python&amp;label=Python&amp;color=green" class="img-fluid" alt="Python Version"></a> <a href="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner"><img src="https://img.shields.io/badge/repo%20status-Active-brightgreen.png" class="img-fluid" alt="Repo Status"></a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Meta</strong></td>
+<td style="text-align: left;"><a href="./CODE_OF_CONDUCT.html"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" class="img-fluid" alt="Code of Conduct"></a> <a href="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/blob/main/LICENSE"><img src="https://img.shields.io/badge/dynamic/json?url=https://test.pypi.org/pypi/survey-cleaner/json&amp;query=%24.info.license&amp;label=License&amp;color=blue" class="img-fluid" alt="License"></a></td>
 </tr>
 </tbody>
 </table>
@@ -272,11 +294,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="normalize-binary-responses" class="level3">
 <h3 class="anchored" data-anchor-id="normalize-binary-responses">Normalize Binary Responses</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> survey_cleaner <span class="im">import</span> normalize_binary</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Converts Yes/No, True/False, T/F to 1/0</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'response'</span>: [<span class="st">'Yes'</span>, <span class="st">'No'</span>, <span class="st">'Yes'</span>]})</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'response'</span>] <span class="op">=</span> df[<span class="st">'response'</span>].<span class="bu">apply</span>(normalize_binary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Converts Yes/No, True/False, T/F to 1/0</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'response'</span>] <span class="op">=</span> normalize_binary(df[<span class="st">'response'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="convert-ordinal-responses-to-numeric" class="level3">
 <h3 class="anchored" data-anchor-id="convert-ordinal-responses-to-numeric">Convert Ordinal Responses to Numeric</h3>
