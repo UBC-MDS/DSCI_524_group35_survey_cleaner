@@ -180,6 +180,7 @@ The `quartodoc-publish.yml` workflow automatically
 ### Viewing Published Documentation
 Once deployed, documentation is available at:
    - GitHub Pages: <https://ubc-mds.github.io/DSCI_524_group35_survey_cleaner/>
+   - Netlify: <https://dsci524group35surveycleaner.netlify.app/>
 
 ## Contributing
 Interested in contributing? Check out the [contributing guidelines](CONTRIBUTING.md). Please note that this project is released with a [Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
