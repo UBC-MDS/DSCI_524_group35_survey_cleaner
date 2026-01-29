@@ -3,3 +3,11 @@ title: "Retrospective"
 ---
 
 ## Overview
+
+### Milestone Progress
+
+Looking at our **Milestone Progress** table, we can see that Milestone 2 and 3 was the bulk of the project with both of those milestones having more issues compared to Milestone 1. However looking closer at the **Completion Rate** chart under **Insights**, we can see that Milestone 3 had the most issues that were completed which were mostly bug fixes that we had encountered during Milestone 3. There was not any issues left in the Todo section of our Milestones indicating that we did a good job with not overcommitting in the milestones.
+
+### Team Workload (Contributions)
+
+Looking at the **Team Workload** table, we can see that our team had roughly the same amount of contribution with each of us having roughly the same amount of issues. It may seem that Junli Liu had a lower amount of issues compared to the rest of the group, however the issue "Add More Unit Tests for Survey Cleaner Package" was a larger issue where 4 new tests had to be written for the Milestone 3.
