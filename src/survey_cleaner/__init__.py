@@ -36,5 +36,5 @@ handle_emptyStrings : Normalize whitespace in text responses
 remove_duplicates : Keep only latest survey response from user
 """
 
-__version__ = "0.1.1"
+__version__ = "1.0.0"
 
