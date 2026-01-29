@@ -10,6 +10,8 @@ website:
         href: index.qmd
       - text: "Reference"
         href: reference/index.qmd
+      - text: "Retrospective"
+        href: retrospective.qmd
 
 format:
   html:
