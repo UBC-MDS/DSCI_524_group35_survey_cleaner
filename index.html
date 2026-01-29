@@ -299,11 +299,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="convert-ordinal-responses-to-numeric" class="level3">
 <h3 class="anchored" data-anchor-id="convert-ordinal-responses-to-numeric">Convert Ordinal Responses to Numeric</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> survey_cleaner <span class="im">import</span> word_to_ordinal</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Customized mapping</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>word_to_ordinal(feedback, mapping<span class="op">=</span>{<span class="st">"Good"</span>: <span class="dv">1</span>, <span class="st">"Bad"</span>: <span class="dv">0</span>})</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Using default Likert scale</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>word_to_ordinal(feedback, likert<span class="op">=</span><span class="st">"agreement"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>feedback <span class="op">=</span> pd.Series([<span class="st">"strongly agree"</span>, <span class="st">"agree"</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"neither agree nor disagree"</span>, <span class="st">"disagree"</span>])</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Customized mapping, warnning for unmapped values</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>word_to_ordinal(feedback, mapping<span class="op">=</span>{<span class="st">"strongly agree"</span>: <span class="dv">5</span>, <span class="st">"Bad"</span>: <span class="dv">0</span>})</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Using default Likert scale</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>word_to_ordinal(feedback, likert<span class="op">=</span><span class="st">"agreement"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="remove-duplicate-responses" class="level3">
 <h3 class="anchored" data-anchor-id="remove-duplicate-responses">Remove Duplicate Responses</h3>
