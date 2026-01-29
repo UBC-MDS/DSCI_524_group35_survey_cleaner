@@ -97,6 +97,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./reference/index.html"> 
 <span class="menu-text">Reference</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./retrospective.html"> 
+<span class="menu-text">Retrospective</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -130,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#team-collaboration-workflow" id="toc-team-collaboration-workflow" class="nav-link" data-scroll-target="#team-collaboration-workflow">Team Collaboration Workflow</a>
   <ul class="collapse">
   <li><a href="#branch-based-development" id="toc-branch-based-development" class="nav-link" data-scroll-target="#branch-based-development">Branch-Based Development</a></li>
-  <li><a href="#semantic-versioning-commit-standards" id="toc-semantic-versioning-commit-standards" class="nav-link" data-scroll-target="#semantic-versioning-commit-standards">Semantic Versioning &amp; Commit Standards</a></li>
+  <li><a href="#commit-message-standards" id="toc-commit-message-standards" class="nav-link" data-scroll-target="#commit-message-standards">Commit Message Standards</a></li>
   <li><a href="#pull-request-process" id="toc-pull-request-process" class="nav-link" data-scroll-target="#pull-request-process">Pull Request Process</a></li>
   <li><a href="#communication-guidelines" id="toc-communication-guidelines" class="nav-link" data-scroll-target="#communication-guidelines">Communication Guidelines</a></li>
   <li><a href="#equal-contribution" id="toc-equal-contribution" class="nav-link" data-scroll-target="#equal-contribution">Equal Contribution</a></li>
@@ -234,110 +238,17 @@ git push -u origin fix-name-of-your-bugfix</code></pre></li>
 </ul></li>
 </ol>
 </section>
-<section id="semantic-versioning-commit-standards" class="level3">
-<h3 class="anchored" data-anchor-id="semantic-versioning-commit-standards">Semantic Versioning &amp; Commit Standards</h3>
-<p>This project uses <strong><a href="https://python-semantic-release.readthedocs.io/en/stable/">Python Semantic Release</a></strong> to automatically handle versioning, tagging, and changelog generation based on commit messages. To ensure this automation works, <strong>all commit messages must follow the <a href="https://www.conventionalcommits.org/">Conventional Commits</a> specification</strong>.</p>
-<p>The format is: <code>&lt;type&gt;(&lt;scope&gt;): &lt;description&gt;</code></p>
-<section id="commit-types-and-versioning" class="level4">
-<h4 class="anchored" data-anchor-id="commit-types-and-versioning">Commit Types and Versioning</h4>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Commit Type</th>
-<th style="text-align: left;">Release Type</th>
-<th style="text-align: left;">SemVer Impact</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong><code>fix</code></strong></td>
-<td style="text-align: left;"><strong>Patch</strong></td>
-<td style="text-align: left;"><code>0.0.x</code></td>
-<td style="text-align: left;">Bug fixes that do not change API.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong><code>feat</code></strong></td>
-<td style="text-align: left;"><strong>Minor</strong></td>
-<td style="text-align: left;"><code>0.x.0</code></td>
-<td style="text-align: left;">New features that are backward-compatible.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong><code>perf</code></strong></td>
-<td style="text-align: left;"><strong>Patch</strong></td>
-<td style="text-align: left;"><code>0.0.x</code></td>
-<td style="text-align: left;">A code change that improves performance.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong><code>BREAKING CHANGE</code></strong></td>
-<td style="text-align: left;"><strong>Major</strong></td>
-<td style="text-align: left;"><code>x.0.0</code></td>
-<td style="text-align: left;"><strong>Any</strong> change that breaks backward compatibility. Must appear in the footer.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>docs</code></td>
-<td style="text-align: left;">None</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">Documentation only changes.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>style</code></td>
-<td style="text-align: left;">None</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">Formatting, missing semi-colons, etc.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>refactor</code></td>
-<td style="text-align: left;">None</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">Code change that neither fixes a bug nor adds a feature.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>test</code></td>
-<td style="text-align: left;">None</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">Adding or correcting tests.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>chore</code></td>
-<td style="text-align: left;">None</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">Maintenance tasks (CI, build, deps).</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="examples" class="level4">
-<h4 class="anchored" data-anchor-id="examples">Examples</h4>
-<p><strong>1. Minor Release (New Feature):</strong></p>
-<pre class="text"><code>feat: add normalize_binary function
+<section id="commit-message-standards" class="level3">
+<h3 class="anchored" data-anchor-id="commit-message-standards">Commit Message Standards</h3>
+<p>Write clear, meaningful commit messages that will be reviewed as part of the project evaluation:</p>
+<p><strong>Good commit messages:</strong> - Use present tense, imperative mood (e.g., “Add function” not “Added function”) - First line: concise summary (50 characters or less) - Add detailed description after a blank line if needed</p>
+<p><strong>Examples:</strong></p>
+<pre><code>Add normalize_binary function with full docstring
 
 - Implements conversion from True/False, Yes/No, T/F to 0/1
 - Includes parameter validation
-</code></pre>
-<p><strong>2. Patch Release (Bug Fix):</strong></p>
-<pre class="text"><code>fix: resolve regex pattern error in email validator
-</code></pre>
-<p><strong>3. Major Release (Breaking Change):</strong> To trigger a <strong>Major</strong> release (e.g., <code>1.0.0</code> to <code>2.0.0</code>), you must include <code>BREAKING CHANGE:</code> in the footer of your commit message, regardless of the commit type.</p>
-<pre class="text"><code>feat: rewrite survey input parser
-
-The old parser has been removed and replaced with a new strict-mode parser.
-
-BREAKING CHANGE: The `parse_input()` function now accepts a DataFrame instead of a list.
-</code></pre>
-<p><strong>Avoid vague messages like:</strong></p>
-<ul>
-<li>“update”</li>
-<li>“fix bug”</li>
-<li>“wip”</li>
-</ul>
-</section>
+- Handles case-insensitive string inputs</code></pre>
+<p><strong>Avoid vague messages like:</strong> - “update” - “fix bug” - “wip”</p>
 </section>
 <section id="pull-request-process" class="level3">
 <h3 class="anchored" data-anchor-id="pull-request-process">Pull Request Process</h3>

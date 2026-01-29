@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>changelog – Survey Cleaner</title>
+<title>Retrospective – Survey Cleaner</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Reference</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./retrospective.html"> 
+    <a class="nav-link active" href="./retrospective.html" aria-current="page"> 
 <span class="menu-text">Retrospective</span></a>
   </li>  
 </ul>
@@ -117,35 +117,72 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#changelog" id="toc-changelog" class="nav-link active" data-scroll-target="#changelog">Changelog</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
   <ul class="collapse">
-  <li><a href="#unreleased" id="toc-unreleased" class="nav-link" data-scroll-target="#unreleased">[Unreleased]</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">[0.1.0] - (2026-01-09)</a></li>
+  <li><a href="#milestone-progress" id="toc-milestone-progress" class="nav-link" data-scroll-target="#milestone-progress">Milestone Progress</a></li>
+  <li><a href="#team-workload-contributions" id="toc-team-workload-contributions" class="nav-link" data-scroll-target="#team-workload-contributions">Team Workload (Contributions)</a></li>
+  </ul></li>
+  <li><a href="#retrospective-discussion" id="toc-retrospective-discussion" class="nav-link" data-scroll-target="#retrospective-discussion">Retrospective Discussion</a>
+  <ul class="collapse">
+  <li><a href="#useful-tools-and-infrastructure" id="toc-useful-tools-and-infrastructure" class="nav-link" data-scroll-target="#useful-tools-and-infrastructure">Useful tools and infrastructure</a></li>
+  <li><a href="#planning-accuracy" id="toc-planning-accuracy" class="nav-link" data-scroll-target="#planning-accuracy">Planning Accuracy</a></li>
+  <li><a href="#bottlenecks" id="toc-bottlenecks" class="nav-link" data-scroll-target="#bottlenecks">Bottlenecks</a></li>
+  <li><a href="#bus-factor" id="toc-bus-factor" class="nav-link" data-scroll-target="#bus-factor">Bus Factor</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Retrospective</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="changelog" class="level1">
-<h1>Changelog</h1>
-<p>All notable changes to this project will be documented in this file.</p>
-<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>, and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
-<section id="unreleased" class="level2">
-<h2 class="anchored" data-anchor-id="unreleased">[Unreleased]</h2>
-<ul>
-<li>Upcoming features and fixes</li>
-</ul>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="milestone-progress" class="level3">
+<h3 class="anchored" data-anchor-id="milestone-progress">Milestone Progress</h3>
+<p>Looking at our <strong>Milestone Progress</strong> table, we can see that Milestone 2 and 3 was the bulk of the project with both of those milestones having more issues compared to Milestone 1. However looking closer at the <strong>Completion Rate</strong> chart under <strong>Insights</strong>, we can see that Milestone 3 had the most issues that were completed which were mostly bug fixes that we had encountered during Milestone 3. There was not any issues left in the Todo section of our Milestones indicating that we did a good job with not overcommitting in the milestones.</p>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">[0.1.0] - (2026-01-09)</h2>
-<ul>
-<li>First release</li>
-</ul>
+<section id="team-workload-contributions" class="level3">
+<h3 class="anchored" data-anchor-id="team-workload-contributions">Team Workload (Contributions)</h3>
+<p>Looking at the <strong>Team Workload</strong> table, we can see that our team had roughly the same amount of contribution with each of us having roughly the same amount of issues. It may seem that Junli Liu had a lower amount of issues compared to the rest of the group, however the issue “Add More Unit Tests for Survey Cleaner Package” was a larger issue where 4 new tests had to be written for the Milestone 3.</p>
+</section>
+</section>
+<section id="retrospective-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="retrospective-discussion">Retrospective Discussion</h2>
+<section id="useful-tools-and-infrastructure" class="level3">
+<h3 class="anchored" data-anchor-id="useful-tools-and-infrastructure">Useful tools and infrastructure</h3>
+<p>If we were to scale up this project, we would create a template for Pull Requests so that all Pull Requests follow the same exact format so it easier for the code reviewer to track the changes made. Having a template also saves time in making long pull requests; instead of spending time on making a Pull Request, we should allocate more time in implementing new features in the package.</p>
+<p>Another practice we would follow if we wanted to scale up this project is to use tools such as style checkers and linters within our coding environment to reduce the amount of failed jobs when pushing a new version of our package to PyPI (TestPyPI). This will save time as running workflows can be time consuming.</p>
+</section>
+<section id="planning-accuracy" class="level3">
+<h3 class="anchored" data-anchor-id="planning-accuracy">Planning Accuracy</h3>
+<p>Looking at our <strong>Milestone Progress</strong> view, it seems like we did not have major issues in underestimating the magnitude of tasks for each milestone. At times we had our group members assist in some tasks when there were issues such as bug fixes in the workflow files but overall our planning was very good as in the start of each of the milestones, we met up as a group and assigned eachother tasks so we can begin as soon as possible. If there were any issues with the tasks assigned, we would often regroup in the labs to discuss those issues.</p>
+</section>
+<section id="bottlenecks" class="level3">
+<h3 class="anchored" data-anchor-id="bottlenecks">Bottlenecks</h3>
+<p>One major bottleneck we had experienced during our project was getting pull requests reviewed. As we didn’t have set guidelines for who and when one should review a Pull Request, there were times when a Pull Request took some time to review slowing down progress to continue working on tasks for the rest of the milestone. Something we would do differently to make this process more efficient is before each milestone, we will predefine who reviews who’s Pull Request and also sending notifications so that the reviewer gets notified as soon as possible.</p>
+</section>
+<section id="bus-factor" class="level3">
+<h3 class="anchored" data-anchor-id="bus-factor">Bus Factor</h3>
+<p>Looking at the <strong>Team Workload</strong> table, we can see that each group member has roughly the same amount of Issues tasked to them. By just numbers, we can see that Jay Li has the most amount of Issues assigned. If he were to get sick and we did not have a meeting regarding his absence, the project would have definitely stalled because we would not know which of the tasks would be assigned to a different group member. However if we have some emergency meeting, we can split his Issues among the rest of the group members for that Milestone so that the group can continue with the milestone with minimal hiccups.</p>
 
 
 </section>
