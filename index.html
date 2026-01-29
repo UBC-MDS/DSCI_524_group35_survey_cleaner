@@ -272,9 +272,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="normalize-binary-responses" class="level3">
 <h3 class="anchored" data-anchor-id="normalize-binary-responses">Normalize Binary Responses</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> survey_cleaner <span class="im">import</span> normalize_binary</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Converts Yes/No, True/False, T/F to 1/0</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'response'</span>] <span class="op">=</span> normalize_binary(df[<span class="st">'response'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Converts Yes/No, True/False, T/F to 1/0</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'response'</span>: [<span class="st">'Yes'</span>, <span class="st">'No'</span>, <span class="st">'Yes'</span>]})</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'response'</span>] <span class="op">=</span> df[<span class="st">'response'</span>].<span class="bu">apply</span>(normalize_binary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="convert-ordinal-responses-to-numeric" class="level3">
 <h3 class="anchored" data-anchor-id="convert-ordinal-responses-to-numeric">Convert Ordinal Responses to Numeric</h3>
