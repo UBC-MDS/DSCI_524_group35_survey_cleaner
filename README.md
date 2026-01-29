@@ -70,9 +70,11 @@ df['comments'] = handle_emptyStrings(df['comments'])
 ### Normalize Binary Responses
 ```python
 from survey_cleaner import normalize_binary
+import pandas as pd
 
 # Converts Yes/No, True/False, T/F to 1/0
-df['response'] = normalize_binary(df['response'])
+df = pd.DataFrame({'response': ['Yes', 'No', 'Yes']})
+df['response'] = df['response'].apply(normalize_binary)
 ```
 ### Convert Ordinal Responses to Numeric
 ```python
