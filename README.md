@@ -74,9 +74,11 @@ df['response'] = df['response'].apply(normalize_binary)
 ### Convert Ordinal Responses to Numeric
 ```python
 from survey_cleaner import word_to_ordinal
+feedback = pd.Series(["strongly agree", "agree", 
+                     "neither agree nor disagree", "disagree"])
 
-# Customized mapping
-word_to_ordinal(feedback, mapping={"Good": 1, "Bad": 0})
+# Customized mapping, warnning for unmapped values
+word_to_ordinal(feedback, mapping={"strongly agree": 5, "Bad": 0})
 # Using default Likert scale
 word_to_ordinal(feedback, likert="agreement")
 ```
