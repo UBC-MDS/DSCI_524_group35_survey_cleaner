@@ -11,3 +11,23 @@ Looking at our **Milestone Progress** table, we can see that Milestone 2 and 3 w
 ### Team Workload (Contributions)
 
 Looking at the **Team Workload** table, we can see that our team had roughly the same amount of contribution with each of us having roughly the same amount of issues. It may seem that Junli Liu had a lower amount of issues compared to the rest of the group, however the issue "Add More Unit Tests for Survey Cleaner Package" was a larger issue where 4 new tests had to be written for the Milestone 3.
+
+## Retrospective Discussion
+
+### Useful tools and infrastructure
+
+If we were to scale up this project, we would create a template for Pull Requests so that all Pull Requests follow the same exact format so it easier for the code reviewer to track the changes made. Having a template also saves time in making long pull requests; instead of spending time on making a Pull Request, we should allocate more time in implementing new features in the package.
+
+Another practice we would follow if we wanted to scale up this project is to use tools such as style checkers and linters within our coding environment to reduce the amount of failed jobs when pushing a new version of our package to PyPI (TestPyPI). This will save time as running workflows can be time consuming.
+
+### Planning Accuracy
+
+Looking at our **Milestone Progress** view, it seems like we did not have major issues in underestimating the magnitude of tasks for each milestone. At times we had our group members assist in some tasks when there were issues such as bug fixes in the workflow files but overall our planning was very good as in the start of each of the milestones, we met up as a group and assigned eachother tasks so we can begin as soon as possible. If there were any issues with the tasks assigned, we would often regroup in the labs to discuss those issues.
+
+### Bottlenecks
+
+One major bottleneck we had experienced during our project was getting pull requests reviewed. As we didn't have set guidelines for who and when one should review a Pull Request, there were times when a Pull Request took some time to review slowing down progress to continue working on tasks for the rest of the milestone. Something we would do differently to make this process more efficient is before each milestone, we will predefine who reviews who's Pull Request and also sending notifications so that the reviewer gets notified as soon as possible.
+
+### Bus Factor
+
+Looking at the **Team Workload** table, we can see that each group member has roughly the same amount of Issues tasked to them. By just numbers, we can see that Jay Li has the most amount of Issues assigned. If he were to get sick and we did not have a meeting regarding his absence, the project would have definitely stalled because we would not know which of the tasks would be assigned to a different group member. However if we have some emergency meeting, we can split his Issues among the rest of the group members for that Milestone so that the group can continue with the milestone with minimal hiccups.
