@@ -46,26 +46,10 @@ While there are a number of text cleaning packages available on PyPi such as [cl
 
 ## Installation
 
-Clone the repository to your local:
+You can install the latest release of survey_cleaner from TestPyPI using pip:
 
 ```bash
-$ git clone https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner.git
-
-$ cd DSCI_524_group35_survey_cleaner
-```
-
-It is recommended but not required to use the environment file to create a conda environment:
-
-```bash
-$ conda env create -f environment.yml
-
-$ conda activate survey_cleaner
-```
-
-You can install this package into your preferred Python environment using pip:
-
-```bash
-$ pip install survey_cleaner
+$ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ survey_cleaner
 ```
 
 ## Usage Examples:
