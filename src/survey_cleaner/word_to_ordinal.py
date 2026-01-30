@@ -24,12 +24,12 @@ def word_to_ordinal(
         If None, `likert` must be provided.
     likert : str, optional
         The name of a pre-defined likert scale to use. Supported types:
-        
+
         - "agreement": {"Strongly Agree": 5, "Agree": 4, ...}
         - "satisfaction": {"Very Satisfied": 5, "Satisfied": 4, ...}
         - "frequency": {"Always": 5, "Often": 4, ...}
         - "likelihood": {"Very Likely": 5, "Likely": 4, ...}
-        
+
         If None, `mapping` must be provided.
     case_insensitive : bool, default True
         If True, the conversion will ignore case differences between `data`
