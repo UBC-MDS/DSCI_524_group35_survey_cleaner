@@ -1,5 +1,5 @@
 {% if ctx.changelog_mode == "update" %}
-## [{{ version }}] - ({{ datetime.date.today().strftime('%Y-%m-%d') }})
+## [{{ version }}]
 
 {% for type, commits in ctx.history.unreleased | groupby("type") %}
 ### {{ type | title }}
@@ -18,14 +18,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 {% for release in ctx.history.released.values() | list %}
-## [{{ release.version }}] - ({{ release.date.strftime("%Y-%m-%d") if release.date else "Unknown Date" }})
+{% if release is mapping and release.get('date') %}
+## [{{ release['version'] }}] - ({{ release['date'] }})
+{% elif release.date is defined %}
+## [{{ release.version }}] - ({{ release.date }})
+{% else %}
+## [{{ release['version'] if release is mapping else release.version }}]
+{% endif %}
 
-{% if release.description %}
+{% if release is mapping and release.get('description') %}
+{{ release['description'] }}
+{% elif release.description is defined and release.description %}
 {{ release.description }}
 {% endif %}
 
-{% set commits = release.commits | default([]) %}
-{% for type, section_commits in commits | groupby("type") %}
+{% set commits = release['commits'] if release is mapping else release.commits %}
+{% for type, section_commits in commits | default([]) | groupby("type") %}
 ### {{ type | title }}
 
 {% for commit in section_commits %}
