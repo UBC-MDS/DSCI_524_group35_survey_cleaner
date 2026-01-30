@@ -172,7 +172,7 @@
     "href": "CHANGELOG.html",
     "title": "Changelog",
     "section": "",
-    "text": "All notable changes to this project will be documented in this file.\nThe format is based on Keep a Changelog, and this project adheres to Semantic Versioning.\n\n\n\nUpcoming features and fixes\n\n\n\n\n\n\n\nCorrected repository URLs in project configuration (DSCI_542 → DSCI_524)\nAdded missing type annotations to all public functions\nEnhanced documentation for remove_duplicates exceptions\n\n\n\n\n\nImproved code documentation and type safety\n\n\n\n\n\n\nFirst release"
+    "text": "All notable changes to this project will be documented in this file.\nThe format is based on Keep a Changelog, and this project adheres to Semantic Versioning.\n\n\n\nUpcoming features and fixes\n\n\n\n\n\nFirst release"
   },
   {
     "objectID": "CHANGELOG.html#unreleased",
@@ -184,13 +184,6 @@
   {
     "objectID": "CHANGELOG.html#section",
     "href": "CHANGELOG.html#section",
-    "title": "Changelog",
-    "section": "",
-    "text": "Corrected repository URLs in project configuration (DSCI_542 → DSCI_524)\nAdded missing type annotations to all public functions\nEnhanced documentation for remove_duplicates exceptions\n\n\n\n\n\nImproved code documentation and type safety"
-  },
-  {
-    "objectID": "CHANGELOG.html#section-1",
-    "href": "CHANGELOG.html#section-1",
     "title": "Changelog",
     "section": "",
     "text": "First release"
