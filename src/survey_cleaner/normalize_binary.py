@@ -5,7 +5,8 @@ format (0 or 1).
 
 """
 
-def normalize_binary(response):
+
+def normalize_binary(response: bool | str | int) -> int:
     """
     Convert response to binary format (0 or 1).
 

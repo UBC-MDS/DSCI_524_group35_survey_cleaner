@@ -1,6 +1,7 @@
 import pandas as pd
 
-def remove_duplicates(responses, id_col, datetime_col):
+
+def remove_duplicates(responses: pd.DataFrame, id_col: str, datetime_col: str) -> pd.DataFrame:
     """
     Remove duplicate responses from a DataFrame containing survey data.
     

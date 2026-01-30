@@ -6,7 +6,7 @@ including collapsing multiple spaces and removing leading/trailing whitespace.
 """
 
 
-def handle_emptyStrings(text):
+def handle_emptyStrings(text: str | None) -> str | None:
     """
     Clean and normalize whitespace in text input.
 

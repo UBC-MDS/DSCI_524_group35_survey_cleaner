@@ -2,8 +2,11 @@ import pandas as pd
 
 
 def word_to_ordinal(
-    data, mapping=None, likert=None, case_insensitive=True
-):
+    data: list[str] | pd.Series,
+    mapping: dict[str, int] | None = None,
+    likert: str | None = None,
+    case_insensitive: bool = True
+) -> list[int] | pd.Series:
     """
     Convert a list of text responses to ordinal values
     based on a mapping or a pre-defined scale.
