@@ -1,9 +1,7 @@
 import pandas as pd
 
 
-def word_to_ordinal(
-    data, mapping=None, likert=None, case_insensitive=True
-):
+def word_to_ordinal(data, mapping=None, likert=None, case_insensitive=True):
     """
     Convert a list of text responses to ordinal values
     based on a mapping or a pre-defined scale.
@@ -21,12 +19,12 @@ def word_to_ordinal(
         If None, `likert` must be provided.
     likert : str, optional
         The name of a pre-defined likert scale to use. Supported types:
-        
+
         - "agreement": {"Strongly Agree": 5, "Agree": 4, ...}
         - "satisfaction": {"Very Satisfied": 5, "Satisfied": 4, ...}
         - "frequency": {"Always": 5, "Often": 4, ...}
         - "likelihood": {"Very Likely": 5, "Likely": 4, ...}
-        
+
         If None, `mapping` must be provided.
     case_insensitive : bool, default True
         If True, the conversion will ignore case differences between `data`
@@ -70,20 +68,27 @@ def word_to_ordinal(
     # Mapping logic: Positive/High intensity = 5, Negative/Low intensity = 1
     likert_scales = {
         "agreement": {
-            "strongly agree": 5, "agree": 4, "neither agree nor disagree": 3,
-            "disagree": 2, "strongly disagree": 1
+            "strongly agree": 5,
+            "agree": 4,
+            "neither agree nor disagree": 3,
+            "disagree": 2,
+            "strongly disagree": 1,
         },
         "satisfaction": {
-            "very satisfied": 5, "satisfied": 4, "neutral": 3,
-            "dissatisfied": 2, "very dissatisfied": 1
+            "very satisfied": 5,
+            "satisfied": 4,
+            "neutral": 3,
+            "dissatisfied": 2,
+            "very dissatisfied": 1,
         },
-        "frequency": {
-            "always": 5, "often": 4, "sometimes": 3, "rarely": 2, "never": 1
-        },
+        "frequency": {"always": 5, "often": 4, "sometimes": 3, "rarely": 2, "never": 1},
         "likelihood": {
-            "very likely": 5, "likely": 4, "neutral": 3,
-            "unlikely": 2, "very unlikely": 1
-        }
+            "very likely": 5,
+            "likely": 4,
+            "neutral": 3,
+            "unlikely": 2,
+            "very unlikely": 1,
+        },
     }
 
     # 3. Determine Target Mapping

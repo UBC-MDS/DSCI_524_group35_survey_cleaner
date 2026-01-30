@@ -5,6 +5,7 @@ format (0 or 1).
 
 """
 
+
 def normalize_binary(response):
     """
     Convert response to binary format (0 or 1).
@@ -62,6 +63,10 @@ def normalize_binary(response):
         elif lower_response in valid_false_responses:
             return 0
         else:
-            raise ValueError("Invalid string response: (must be one of 'Yes', 'No', 'True', 'False', 'T', 'F')")
+            raise ValueError(
+                "Invalid string response: (must be one of 'Yes', 'No', 'True', 'False', 'T', 'F')"
+            )
 
-    raise ValueError("Invalid response format (Must be boolean, 0 or 1 integer, or the following strings: 'Yes', 'No', 'True', 'False', 'T', 'F')")
+    raise ValueError(
+        "Invalid response format (Must be boolean, 0 or 1 integer, or the following strings: 'Yes', 'No', 'True', 'False', 'T', 'F')"
+    )

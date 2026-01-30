@@ -29,6 +29,8 @@ jobs:
         run: pip install ruff
       - name: Run ruff style check
         run: ruff check src/
+      - name: Run ruff formatter check
+        run: ruff format --check src/
 
       - name: Build package using Hatch
         run: |

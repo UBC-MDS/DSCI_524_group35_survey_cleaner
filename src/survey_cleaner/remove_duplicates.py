@@ -1,9 +1,10 @@
 import pandas as pd
 
+
 def remove_duplicates(responses, id_col, datetime_col):
     """
     Remove duplicate responses from a DataFrame containing survey data.
-    
+
     Parameters
     ----------
     responses : pd.DataFrame
@@ -17,14 +18,14 @@ def remove_duplicates(responses, id_col, datetime_col):
     -------
     pd.DataFrame
         Cleaned, shuffled survey data containing only the most recent entry from each individual.
-        
-      
+
+
     Examples
     --------
     >>> import pandas as pd
     >>> df = pd.DataFrame({
     ...     'respondent_id': [1, 2, 1, 3],
-    ...     'completed_at': ['2024-01-01 10:00', '2024-01-01 11:00', 
+    ...     'completed_at': ['2024-01-01 10:00', '2024-01-01 11:00',
     ...                      '2024-01-01 12:00', '2024-01-01 13:00'],
     ...     'answer': ['Yes', 'No', 'Maybe', 'Yes']
     ... })
@@ -56,17 +57,11 @@ def remove_duplicates(responses, id_col, datetime_col):
         raise ValueError(f"'{id_col}' contains null values")
 
     # get rid of duplicates
-    no_dups_df = responses.sort_values(
-        by = datetime_col
-        ).drop_duplicates(
-            subset=[id_col], 
-            keep="last"
-        )
+    no_dups_df = responses.sort_values(by=datetime_col).drop_duplicates(
+        subset=[id_col], keep="last"
+    )
 
     # return df as randomized instead of sorted
-    shuffled_df = no_dups_df.sample(
-        frac=1, 
-        random_state=524
-    ).reset_index(drop=True)
+    shuffled_df = no_dups_df.sample(frac=1, random_state=524).reset_index(drop=True)
 
     return shuffled_df

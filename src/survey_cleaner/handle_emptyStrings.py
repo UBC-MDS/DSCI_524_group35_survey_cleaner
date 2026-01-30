@@ -73,4 +73,4 @@ def handle_emptyStrings(text):
     # - join(' ') reconnects the words with single spaces
     # This handles all edge cases: leading/trailing whitespace, multiple spaces,
     # tabs, newlines, and combinations of whitespace characters
-    return ' '.join(text.split())
+    return " ".join(text.split())
