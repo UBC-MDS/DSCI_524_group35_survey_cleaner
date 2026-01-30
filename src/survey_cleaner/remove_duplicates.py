@@ -2,9 +2,7 @@ import pandas as pd
 
 
 def remove_duplicates(
-    responses: pd.DataFrame,
-    id_col: str,
-    datetime_col: str
+    responses: pd.DataFrame, id_col: str, datetime_col: str
 ) -> pd.DataFrame:
     """
     Remove duplicate responses from a DataFrame containing survey data.
@@ -31,7 +29,7 @@ def remove_duplicates(
     >>> import pandas as pd
     >>> df = pd.DataFrame({
     ...     'respondent_id': [1, 2, 1, 3],
-    ...     'completed_at': ['2024-01-01 10:00', '2024-01-01 11:00', 
+    ...     'completed_at': ['2024-01-01 10:00', '2024-01-01 11:00',
     ...                      '2024-01-01 12:00', '2024-01-01 13:00'],
     ...     'answer': ['Yes', 'No', 'Maybe', 'Yes']
     ... })
@@ -54,8 +52,7 @@ def remove_duplicates(
     if id_col not in responses.columns:
         raise KeyError(f"id_col '{id_col}' doesn't exist in the DataFrame")
     if datetime_col not in responses.columns:
-        raise KeyError(
-            f"datetime_col '{datetime_col}' doesn't exist in the DataFrame")
+        raise KeyError(f"datetime_col '{datetime_col}' doesn't exist in the DataFrame")
 
     # defensive programming
     if responses.empty:
@@ -64,17 +61,11 @@ def remove_duplicates(
         raise ValueError(f"'{id_col}' contains null values")
 
     # get rid of duplicates
-    no_dups_df = responses.sort_values(
-        by=datetime_col
-    ).drop_duplicates(
-        subset=[id_col],
-        keep="last"
+    no_dups_df = responses.sort_values(by=datetime_col).drop_duplicates(
+        subset=[id_col], keep="last"
     )
 
     # return df as randomized instead of sorted
-    shuffled_df = no_dups_df.sample(
-        frac=1,
-        random_state=524
-    ).reset_index(drop=True)
+    shuffled_df = no_dups_df.sample(frac=1, random_state=524).reset_index(drop=True)
 
     return shuffled_df
