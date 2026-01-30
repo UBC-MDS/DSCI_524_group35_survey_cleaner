@@ -1,3 +1,4 @@
+{% set releases = ctx.history.released.values() | list %}
 {% if ctx.changelog_mode == "update" %}
 {% set release = releases[0] %}
 ## [{{ release.version }}] - ({{ release.date.strftime("%Y-%m-%d") }})
