@@ -156,7 +156,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
   <li><a href="#returns" id="toc-returns" class="nav-link" data-scroll-target="#returns">Returns</a></li>
-  <li><a href="#raises" id="toc-raises" class="nav-link" data-scroll-target="#raises">Raises</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul></li>
   </ul>
@@ -231,40 +230,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td></td>
 <td>pd.DataFrame</td>
 <td>Cleaned, shuffled survey data containing only the most recent entry from each individual.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="raises" class="level2 doc-section doc-section-raises">
-<h2 class="doc-section doc-section-raises anchored" data-anchor-id="raises">Raises</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 9%">
-<col style="width: 84%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td>TypeError</td>
-<td>If <code>responses</code> is not a pandas DataFrame. If <code>id_col</code> is not a string. If <code>datetime_col</code> is not a string.</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>KeyError</td>
-<td>If <code>id_col</code> does not exist in the DataFrame columns. If <code>datetime_col</code> does not exist in the DataFrame columns.</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>ValueError</td>
-<td>If <code>id_col</code> contains null values.</td>
 </tr>
 </tbody>
 </table>
