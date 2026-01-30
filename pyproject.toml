@@ -195,6 +195,7 @@ build_command = "pip install hatch && hatch build"
 
 [tool.semantic_release.changelog]
 mode = "update"
+template_dir = "templates"
 exclude_commit_patterns = [
     "chore:.*",
     "ci:.*",
@@ -202,8 +203,7 @@ exclude_commit_patterns = [
 ]
 
 [tool.semantic_release.changelog.default_templates]
-changelog_file = "CHANGELOG.md"
-output_format = "md"
+"CHANGELOG.md" = "CHANGELOG.md.j2"
 
 [tool.semantic_release.commit]
 commit = true     
