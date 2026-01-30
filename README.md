@@ -56,10 +56,11 @@ $ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https:
 
 ### Clean Whitespace
 ```python
-import pandas as pd
 from survey_cleaner import handle_emptyStrings
+import pandas as pd
 
 # Removes leading/trailing whitespace and collapses multiple spaces
+df = pd.DataFrame({'comments': ['  too many   spaces  ', 'normal text', '   leading']})
 df['comments'] = handle_emptyStrings(df['comments'])
 ```
 ### Normalize Binary Responses
