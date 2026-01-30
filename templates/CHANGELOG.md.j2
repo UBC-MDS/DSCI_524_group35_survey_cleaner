@@ -1,4 +1,4 @@
-{% if releases %}
+{% if ctx.changelog_mode == "update" %}
 {% set release = releases[0] %}
 ## [{{ release.version }}] - ({{ release.date.strftime("%Y-%m-%d") }})
 
@@ -12,5 +12,30 @@
 {% for commit in section_commits %}
 - {{ commit.message.split('\n')[0] }} ({{ commit.short_hash }})
 {% endfor %}
+{% endfor %}
+
+{% else %}
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+{% for release in releases %}
+## [{{ release.version }}] - ({{ release.date.strftime("%Y-%m-%d") }})
+
+{% if release.description %}
+{{ release.description }}
+{% endif %}
+
+{% for section_title, section_commits in release.commits | groupby("type") %}
+### {{ section_title | title }}
+
+{% for commit in section_commits %}
+- {{ commit.message.split('\n')[0] }} ({{ commit.short_hash }})
+{% endfor %}
+{% endfor %}
+
 {% endfor %}
 {% endif %}
