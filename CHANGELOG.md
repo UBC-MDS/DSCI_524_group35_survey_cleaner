@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Upcoming features and fixes
 
+## [1.0.2] - (2026-01-30)
+
+### Fixed
+- Corrected repository URLs in project configuration (DSCI_542 → DSCI_524)
+- Added missing type annotations to all public functions
+- Enhanced documentation for remove_duplicates exceptions
+
+### Changed
+- Improved code documentation and type safety
+
 ## [0.1.0] - (2026-01-09)
 
 - First release
