@@ -191,6 +191,7 @@ check = ["pip-audit"]
 
 [tool.semantic_release]
 version_variables = ["src/survey_cleaner/__init__.py:__version__"]
+build_command = "pip install hatch && hatch build"
 
 [tool.semantic_release.changelog]
 commit = true
