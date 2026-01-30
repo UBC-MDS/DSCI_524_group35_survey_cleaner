@@ -133,3 +133,12 @@ def test_type_errors():
         remove_duplicates(df, 123, "b")
     with pytest.raises(TypeError, match="datetime_col must be a string"):
         remove_duplicates(df, "a", 123)
+
+
+def test_missing_datetime_col(text_data):
+    """
+    Test KeyError specifically when datetime_col is missing.
+    Checking that code reaches the second validation block.
+    """
+    with pytest.raises(KeyError, match="datetime_col 'wrong_col' doesn't exist"):
+        remove_duplicates(text_data, "respondent_id", "wrong_col")

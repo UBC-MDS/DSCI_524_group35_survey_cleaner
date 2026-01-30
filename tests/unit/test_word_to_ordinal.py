@@ -112,3 +112,20 @@ def test_unknown_values_error_message():
     """Check if the error message correctly lists unknown values."""
     with pytest.raises(ValueError, match="Values not found in mapping: {'unknown'}"):
         word_to_ordinal(["unknown"], likert="agreement")
+
+
+def test_series_case_sensitive_mapping():
+    """
+    Test pd.Series input with case_insensitive=False.
+    This covers the missing branch in line 108.
+    """
+    data = pd.Series(["Good", "Bad"], name="quality")
+    mapping = {"Good": 1, "Bad": 0}
+
+    result = word_to_ordinal(data, mapping=mapping, case_insensitive=False)
+    expected = pd.Series([1, 0], name="quality")
+    pd.testing.assert_series_equal(result, expected)
+
+    data_mismatch = pd.Series(["good", "bad"], name="quality")
+    with pytest.raises(ValueError, match="Values not found in mapping"):
+        word_to_ordinal(data_mismatch, mapping=mapping, case_insensitive=False)
