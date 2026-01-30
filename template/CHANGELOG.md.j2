@@ -1,0 +1,18 @@
+# CHANGELOG
+
+{% for release in releases %}
+## [{{ release.version }}] - ({{ release.date.strftime("%Y-%m-%d") }})
+
+{% if release.description %}
+{{ release.description }}
+{% endif %}
+
+{% for section_title, section_commits in release.commits | groupby("type") %}
+### {{ section_title | title }}
+
+{% for commit in section_commits %}
+- {{ commit.message.split('\n')[0] }} ({{ commit.short_hash }})
+{% endfor %}
+{% endfor %}
+
+{% endfor %}
