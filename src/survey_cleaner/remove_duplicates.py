@@ -22,8 +22,19 @@ def remove_duplicates(
     Returns
     -------
     pd.DataFrame
-        Cleaned, shuffled survey data
-        containing only the most recent entry from each individual.
+        Cleaned, shuffled survey data containing only the most recent entry from each individual.
+
+    Raises
+    ------
+    TypeError
+        If `responses` is not a pandas DataFrame.
+        If `id_col` is not a string.
+        If `datetime_col` is not a string.
+    KeyError
+        If `id_col` does not exist in the DataFrame columns.
+        If `datetime_col` does not exist in the DataFrame columns.
+    ValueError
+        If `id_col` contains null values.
 
 
     Examples
