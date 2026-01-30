@@ -1,6 +1,5 @@
-# CHANGELOG
-
-{% for release in releases %}
+{% if releases %}
+{% set release = releases[0] %}
 ## [{{ release.version }}] - ({{ release.date.strftime("%Y-%m-%d") }})
 
 {% if release.description %}
@@ -14,5 +13,4 @@
 - {{ commit.message.split('\n')[0] }} ({{ commit.short_hash }})
 {% endfor %}
 {% endfor %}
-
-{% endfor %}
+{% endif %}
