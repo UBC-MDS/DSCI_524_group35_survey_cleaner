@@ -6,7 +6,7 @@ format (0 or 1).
 """
 
 
-def normalize_binary(response):
+def normalize_binary(response: bool | str | int) -> int:
     """
     Convert response to binary format (0 or 1).
 
@@ -64,9 +64,11 @@ def normalize_binary(response):
             return 0
         else:
             raise ValueError(
-                "Invalid string response: (must be one of 'Yes', 'No', 'True', 'False', 'T', 'F')"
+                "Invalid string response: (must be one of "
+                "'Yes', 'No', 'True', 'False', 'T', 'F')"
             )
 
     raise ValueError(
-        "Invalid response format (Must be boolean, 0 or 1 integer, or the following strings: 'Yes', 'No', 'True', 'False', 'T', 'F')"
+        "Invalid response format (Must be boolean, 0 or 1 integer, "
+        "or the following strings: 'Yes', 'No', 'True', 'False', 'T', 'F')"
     )

@@ -11,5 +11,9 @@ dependencies:
   - pytest-cov>=7.0.0
   - coverage>=7.10.6
   - hatchling>=1.9.1
-  - hatch>=1.6.3
+  - hatch>=1.6.3  
+  - pip
+  - pip:
+    - -e .
+    - pytest-lazy-fixtures
 
