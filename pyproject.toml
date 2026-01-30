@@ -194,11 +194,16 @@ version_variables = ["src/survey_cleaner/__init__.py:__version__"]
 build_command = "pip install hatch && hatch build"
 
 [tool.semantic_release.changelog]
+mode = "update"
 exclude_commit_patterns = [
     "chore:.*",
     "ci:.*",
     "Merge branch.*"
 ]
+
+[tool.semantic_release.changelog.default_templates]
+changelog_file = "CHANGELOG.md"
+output_format = "md"
 
 [tool.semantic_release.commit]
 commit = true     
