@@ -89,4 +89,26 @@ def test_case_sensitive_mapping():
     # Should fail with mismatched case
     data_lowercase = ["good", "bad"]
     with pytest.raises(ValueError, match="Values not found in mapping"):
-        word_to_ordinal(data_lowercase, mapping=mapping, case_insensitive=False)
+        word_to_ordinal(data_lowercase, mapping=mapping,
+                        case_insensitive=False)
+
+
+def test_no_mapping_provided():
+    """Test ValueError when neither mapping nor likert is provided."""
+    with pytest.raises(ValueError, match="Provide either mapping or likert scale"):
+        word_to_ordinal(["test"])
+
+
+def test_list_processing_and_case():
+    """Test that list input correctly handles case insensitivity and string conversion."""
+    data = ["Always", "never", 1]
+    mapping = {"always": 3, "never": 1, "1": 5}
+    result = word_to_ordinal(data, mapping=mapping, case_insensitive=True)
+    assert result == [3, 1, 5]
+    assert isinstance(result, list)
+
+
+def test_unknown_values_error_message():
+    """Check if the error message correctly lists unknown values."""
+    with pytest.raises(ValueError, match="Values not found in mapping: {'unknown'}"):
+        word_to_ordinal(["unknown"], likert="agreement")

@@ -43,7 +43,9 @@ from .handle_emptyStrings import handle_emptyStrings
 from .normalize_binary import normalize_binary
 from .remove_duplicates import remove_duplicates
 
-__all__ = ['word_to_ordinal',
-            'handle_emptyStrings',
-              'normalize_binary',
-                'remove_duplicates']
+__all__ = [
+  'word_to_ordinal',
+  'handle_emptyStrings',
+  'normalize_binary',
+  'remove_duplicates'
+]
