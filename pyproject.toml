@@ -191,18 +191,24 @@ check = ["pip-audit"]
 
 [tool.semantic_release]
 version_variables = ["src/survey_cleaner/__init__.py:__version__"]
-version_source = "tag"
+version_source = "commit"
 commit_parser = "angular"
 changelog_file = "CHANGELOG.md"
 build_command = "pip install hatch && hatch build"
 
 [tool.semantic_release.changelog]
 mode = "update"
-exclude_commit_patterns = [
-    "chore:.*",
-    "ci:.*",
-    "Merge branch.*"
-]
+
+[tool.semantic_release.changelog.sections]
+feature = "Features"
+fix = "Bug Fixes"
+chore = "Chores"
+ci = "CI"
+
+[tool.semantic_release.commit_parser_options]
+allowed_tags = ["feat", "fix", "chore", "ci", "refactor", "perf"]
+minor_tags = ["feat"]
+patch_tags = ["fix", "perf", "refactor"]
 
 [tool.semantic_release.commit]
 commit = true
