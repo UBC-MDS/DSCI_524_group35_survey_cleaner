@@ -200,7 +200,7 @@ build_command = "pip install hatch && hatch build"
 mode = "update"
 
 [tool.semantic_release.changelog.sections]
-feature = "Features"
+feat = "Features"
 fix = "Bug Fixes"
 chore = "Chores"
 ci = "CI"
