@@ -2,4 +2,60 @@
 title: "Survey Cleaner"
 ---
 
-{{< include README.md >}}
+## Tutorial: Cleaning a Survey Dataset
+
+This tutorial demonstrates how to clean a small survey dataset using all functions in `survey_cleaner`.
+
+```{python}
+import pandas as pd
+from survey_cleaner import (
+    handle_emptyStrings,
+    normalize_binary,
+    word_to_ordinal,
+    remove_duplicates
+)
+
+# Example raw survey data
+df = pd.DataFrame({
+    "respondent_id": [1, 1, 2, 3],
+    "completed_at": [
+        "2024-01-01 10:00",
+        "2024-01-01 11:00",
+        "2024-01-01 12:00",
+        "2024-01-01 13:00"
+    ],
+    "satisfaction": [
+        "  strongly agree ",
+        "Agree",
+        " disagree ",
+        "Neither agree nor disagree"
+    ],
+    "recommend": ["Yes", "No", "Yes", "True"]
+})
+
+
+df
+```
+
+### Step 1: Clean whitespace
+```{python}
+df["satisfaction"] = df["satisfaction"].apply(handle_emptyStrings)
+df
+```
+
+### Step 2: Normalize binary responses
+```{python}
+df["recommend"] = df["recommend"].apply(normalize_binary)
+df
+
+```
+### Step 3: Convert ordinal responses to numeric
+```{python}
+df["satisfaction_score"] = word_to_ordinal(df["satisfaction"], likert="agreement")
+df
+```
+### Step 4: Remove duplicate responses
+```{python}
+df = remove_duplicates(df, "respondent_id", "completed_at")
+df
+```
