@@ -6,7 +6,7 @@ title: "Survey Cleaner"
 
 This tutorial demonstrates how to clean a small survey dataset using all functions in `survey_cleaner`.
 
-```{python}
+```python
 import pandas as pd
 from survey_cleaner import (
     handle_emptyStrings,
@@ -37,25 +37,78 @@ df = pd.DataFrame({
 df
 ```
 
+Expected Output:
+
+| respondent_id | completed_at     | satisfaction               | recommend |
+| ------------- | ---------------- | -------------------------- | --------- |
+| 1             | 2024-01-01 10:00 | "  strongly agree "        | Yes       |
+| 1             | 2024-01-01 11:00 | Agree                      | No        |
+| 2             | 2024-01-01 12:00 | " disagree "               | Yes       |
+| 3             | 2024-01-01 13:00 | Neither agree nor disagree | True      |
+
+
+
 ### Step 1: Clean whitespace
-```{python}
+```python
 df["satisfaction"] = df["satisfaction"].apply(handle_emptyStrings)
 df
 ```
 
+Expected Output:
+
+| respondent_id | completed_at     | satisfaction               | recommend |
+| ------------- | ---------------- | -------------------------- | --------- |
+| 1             | 2024-01-01 10:00 | strongly agree             | Yes       |
+| 1             | 2024-01-01 11:00 | Agree                      | No        |
+| 2             | 2024-01-01 12:00 | disagree                   | Yes       |
+| 3             | 2024-01-01 13:00 | Neither agree nor disagree | True      |
+
+
 ### Step 2: Normalize binary responses
-```{python}
+```python
 df["recommend"] = df["recommend"].apply(normalize_binary)
 df
 
 ```
+
+Expected Output:
+
+| respondent_id | completed_at     | satisfaction               | recommend |
+| ------------- | ---------------- | -------------------------- | --------- |
+| 1             | 2024-01-01 10:00 | strongly agree             | 1         |
+| 1             | 2024-01-01 11:00 | Agree                      | 0         |
+| 2             | 2024-01-01 12:00 | disagree                   | 1         |
+| 3             | 2024-01-01 13:00 | Neither agree nor disagree | 1         |
+
+
 ### Step 3: Convert ordinal responses to numeric
-```{python}
+```python
 df["satisfaction_score"] = word_to_ordinal(df["satisfaction"], likert="agreement")
 df
 ```
+
+Expected Output:
+
+| respondent_id | completed_at     | satisfaction               | recommend | satisfaction_score |
+| ------------- | ---------------- | -------------------------- | --------- | ------------------ |
+| 1             | 2024-01-01 10:00 | strongly agree             | 1         | 5                  |
+| 1             | 2024-01-01 11:00 | Agree                      | 0         | 4                  |
+| 2             | 2024-01-01 12:00 | disagree                   | 1         | 2                  |
+| 3             | 2024-01-01 13:00 | Neither agree nor disagree | 1         | 3                  |
+
+
+
 ### Step 4: Remove duplicate responses
-```{python}
+```python
 df = remove_duplicates(df, "respondent_id", "completed_at")
 df
 ```
+
+Expected Output:
+
+| respondent_id | completed_at     | satisfaction               | recommend | satisfaction_score |
+| ------------- | ---------------- | -------------------------- | --------- | ------------------ |
+| 1             | 2024-01-01 11:00 | Agree                      | 0         | 4                  |
+| 2             | 2024-01-01 12:00 | disagree                   | 1         | 2                  |
+| 3             | 2024-01-01 13:00 | Neither agree nor disagree | 1         | 3                  |
+
