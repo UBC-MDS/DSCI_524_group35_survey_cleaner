@@ -5,7 +5,7 @@ def word_to_ordinal(
     data: list[str] | pd.Series,
     mapping: dict[str, int] | None = None,
     likert: str | None = None,
-    case_insensitive: bool = True
+    case_insensitive: bool = True,
 ) -> list[int] | pd.Series:
     """
     Convert a list of text responses to ordinal values
@@ -73,20 +73,27 @@ def word_to_ordinal(
     # Mapping logic: Positive/High intensity = 5, Negative/Low intensity = 1
     likert_scales = {
         "agreement": {
-            "strongly agree": 5, "agree": 4, "neither agree nor disagree": 3,
-            "disagree": 2, "strongly disagree": 1
+            "strongly agree": 5,
+            "agree": 4,
+            "neither agree nor disagree": 3,
+            "disagree": 2,
+            "strongly disagree": 1,
         },
         "satisfaction": {
-            "very satisfied": 5, "satisfied": 4, "neutral": 3,
-            "dissatisfied": 2, "very dissatisfied": 1
+            "very satisfied": 5,
+            "satisfied": 4,
+            "neutral": 3,
+            "dissatisfied": 2,
+            "very dissatisfied": 1,
         },
-        "frequency": {
-            "always": 5, "often": 4, "sometimes": 3, "rarely": 2, "never": 1
-        },
+        "frequency": {"always": 5, "often": 4, "sometimes": 3, "rarely": 2, "never": 1},
         "likelihood": {
-            "very likely": 5, "likely": 4, "neutral": 3,
-            "unlikely": 2, "very unlikely": 1
-        }
+            "very likely": 5,
+            "likely": 4,
+            "neutral": 3,
+            "unlikely": 2,
+            "very unlikely": 1,
+        },
     }
 
     # 3. Determine Target Mapping

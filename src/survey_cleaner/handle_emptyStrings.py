@@ -18,7 +18,7 @@ def handle_emptyStrings(text: str | None) -> str | None:
     Parameters
     ----------
     text : str or None
-        The text string to clean. 
+        The text string to clean.
         If None is provided, the function returns None.
 
     Returns
@@ -63,8 +63,7 @@ def handle_emptyStrings(text: str | None) -> str | None:
     """
     # Type checking: ensure input is either a string or None
     if text is not None and not isinstance(text, str):
-        raise TypeError(
-            f"Input must be a string or None, not {type(text).__name__}")
+        raise TypeError(f"Input must be a string or None, not {type(text).__name__}")
 
     # Handle None input
     if text is None:
@@ -78,4 +77,4 @@ def handle_emptyStrings(text: str | None) -> str | None:
     # This handles all edge casesincluding:
     # - leading/trailing whitespace, multiple spaces,
     # tabs, newlines, and combinations of whitespace characters
-    return ' '.join(text.split())
+    return " ".join(text.split())
