@@ -8,6 +8,8 @@ website:
     left:
       - text: "Home"
         href: index.qmd
+      - text: "README"
+        href: readme.qmd
       - text: "Reference"
         href: reference/index.qmd
       - text: "Retrospective"
