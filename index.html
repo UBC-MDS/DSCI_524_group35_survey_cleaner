@@ -129,6 +129,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./readme.html"> 
+<span class="menu-text">README</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./reference/index.html"> 
 <span class="menu-text">Reference</span></a>
   </li>  
@@ -152,34 +156,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-survey_cleaner" id="toc-welcome-to-survey_cleaner" class="nav-link active" data-scroll-target="#welcome-to-survey_cleaner">Welcome to survey_cleaner</a>
+  <li><a href="#tutorial-cleaning-a-survey-dataset" id="toc-tutorial-cleaning-a-survey-dataset" class="nav-link active" data-scroll-target="#tutorial-cleaning-a-survey-dataset">Tutorial: Cleaning a Survey Dataset</a>
   <ul class="collapse">
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
-  <li><a href="#python-ecosystem" id="toc-python-ecosystem" class="nav-link" data-scroll-target="#python-ecosystem">Python Ecosystem</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#usage-examples" id="toc-usage-examples" class="nav-link" data-scroll-target="#usage-examples">Usage Examples:</a>
-  <ul class="collapse">
-  <li><a href="#clean-whitespace" id="toc-clean-whitespace" class="nav-link" data-scroll-target="#clean-whitespace">Clean Whitespace</a></li>
-  <li><a href="#normalize-binary-responses" id="toc-normalize-binary-responses" class="nav-link" data-scroll-target="#normalize-binary-responses">Normalize Binary Responses</a></li>
-  <li><a href="#convert-ordinal-responses-to-numeric" id="toc-convert-ordinal-responses-to-numeric" class="nav-link" data-scroll-target="#convert-ordinal-responses-to-numeric">Convert Ordinal Responses to Numeric</a></li>
-  <li><a href="#remove-duplicate-responses" id="toc-remove-duplicate-responses" class="nav-link" data-scroll-target="#remove-duplicate-responses">Remove Duplicate Responses</a></li>
-  </ul></li>
-  <li><a href="#developer-setup" id="toc-developer-setup" class="nav-link" data-scroll-target="#developer-setup">Developer Setup</a></li>
-  <li><a href="#build-documentation" id="toc-build-documentation" class="nav-link" data-scroll-target="#build-documentation">Build Documentation</a>
-  <ul class="collapse">
-  <li><a href="#building-documentation-locally" id="toc-building-documentation-locally" class="nav-link" data-scroll-target="#building-documentation-locally">Building Documentation Locally</a></li>
-  </ul></li>
-  <li><a href="#deploy-documentation" id="toc-deploy-documentation" class="nav-link" data-scroll-target="#deploy-documentation">Deploy Documentation</a>
-  <ul class="collapse">
-  <li><a href="#workflow-overview" id="toc-workflow-overview" class="nav-link" data-scroll-target="#workflow-overview">Workflow Overview</a></li>
-  <li><a href="#documentation-build-workflow" id="toc-documentation-build-workflow" class="nav-link" data-scroll-target="#documentation-build-workflow">Documentation Build Workflow</a></li>
-  <li><a href="#documentation-publish-workflow" id="toc-documentation-publish-workflow" class="nav-link" data-scroll-target="#documentation-publish-workflow">Documentation Publish Workflow</a></li>
-  <li><a href="#viewing-published-documentation" id="toc-viewing-published-documentation" class="nav-link" data-scroll-target="#viewing-published-documentation">Viewing Published Documentation</a></li>
-  </ul></li>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
-  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">Contributors</a></li>
-  <li><a href="#copyright" id="toc-copyright" class="nav-link" data-scroll-target="#copyright">Copyright</a></li>
+  <li><a href="#step-1-clean-whitespace" id="toc-step-1-clean-whitespace" class="nav-link" data-scroll-target="#step-1-clean-whitespace">Step 1: Clean whitespace</a></li>
+  <li><a href="#step-2-normalize-binary-responses" id="toc-step-2-normalize-binary-responses" class="nav-link" data-scroll-target="#step-2-normalize-binary-responses">Step 2: Normalize binary responses</a></li>
+  <li><a href="#step-3-convert-ordinal-responses-to-numeric" id="toc-step-3-convert-ordinal-responses-to-numeric" class="nav-link" data-scroll-target="#step-3-convert-ordinal-responses-to-numeric">Step 3: Convert ordinal responses to numeric</a></li>
+  <li><a href="#step-4-remove-duplicate-responses" id="toc-step-4-remove-duplicate-responses" class="nav-link" data-scroll-target="#step-4-remove-duplicate-responses">Step 4: Remove duplicate responses</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -206,231 +188,276 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="welcome-to-survey_cleaner" class="level1">
-<h1>Welcome to survey_cleaner</h1>
-<section id="table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
-<ul>
-<li><a href="#welcome-to-survey_cleaner">Welcome to survey_cleaner</a>
-<ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#functions">Functions</a></li>
-<li><a href="#python-ecosystem">Python Ecosystem</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#usage-examples">Usage Examples:</a>
-<ul>
-<li><a href="#clean-whitespace">Clean Whitespace</a></li>
-<li><a href="#normalize-binary-responses">Normalize Binary Responses</a></li>
-<li><a href="#convert-ordinal-responses-to-numeric">Convert Ordinal Responses to Numeric</a></li>
-<li><a href="#remove-duplicate-responses">Remove Duplicate Responses</a></li>
-</ul></li>
-<li><a href="#developer-setup">Developer Setup</a></li>
-<li><a href="#build-documentation">Build Documentation</a>
-<ul>
-<li><a href="#building-documentation-locally">Building Documentation Locally</a></li>
-</ul></li>
-<li><a href="#deploy-documentation">Deploy Documentation</a>
-<ul>
-<li><a href="#workflow-overview">Workflow Overview</a></li>
-<li><a href="#documentation-build-workflow">Documentation Build Workflow</a></li>
-<li><a href="#documentation-publish-workflow">Documentation Publish Workflow</a></li>
-<li><a href="#viewing-published-documentation">Viewing Published Documentation</a></li>
-</ul></li>
-<li><a href="#contributing">Contributing</a></li>
-<li><a href="#contributors">Contributors</a></li>
-<li><a href="#copyright">Copyright</a></li>
-</ul></li>
-</ul>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Testing</strong></td>
-<td style="text-align: left;"><a href="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/build.yml"><img src="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/build.yml/badge.svg" class="img-fluid" alt="CI"></a> <a href="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml"><img src="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/deploy.yml/badge.svg" class="img-fluid" alt="CD"></a> <a href="https://codecov.io/github/ubc-mds/dsci_524_group35_survey_cleaner"><img src="https://codecov.io/github/ubc-mds/dsci_524_group35_survey_cleaner/graph/badge.svg?token=fYoyXiBsXh" class="img-fluid" alt="codecov"></a> <a href="https://ubc-mds.github.io/DSCI_524_group35_survey_cleaner/"><img src="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/actions/workflows/quartodoc-publish.yml/badge.svg" class="img-fluid" alt="Docs"></a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Package</strong></td>
-<td style="text-align: left;"><a href="https://test.pypi.org/project/survey-cleaner/"><img src="https://img.shields.io/badge/dynamic/json?url=https://test.pypi.org/pypi/survey-cleaner/json&amp;query=%24.info.version&amp;label=TestPyPI&amp;color=green" class="img-fluid" alt="Test PyPI Latest Release"></a> <a href="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner/releases"><img src="https://img.shields.io/github/v/release/UBC-MDS/DSCI_524_group35_survey_cleaner?color=green.png" class="img-fluid" alt="GitHub Release"></a> <a href="https://test.pypi.org/project/survey-cleaner/"><img src="https://img.shields.io/badge/dynamic/json?url=https://test.pypi.org/pypi/survey-cleaner/json&amp;query=%24.info.requires_python&amp;label=Python&amp;color=green" class="img-fluid" alt="Python Version"></a> <a href="https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner"><img src="https://img.shields.io/badge/repo%20status-Active-brightgreen.png" class="img-fluid" alt="Repo Status"></a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Meta</strong></td>
-<td style="text-align: left;"><a href="./CODE_OF_CONDUCT.html"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" class="img-fluid" alt="Code of Conduct"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/UBC-MDS/DSCI_524_group35_survey_cleaner?label=License.png" class="img-fluid" alt="License"></a></td>
-</tr>
-</tbody>
-</table>
-<p>survey_cleaner is a project that aims to streamline the process of cleaning survey data by automating common cleaning tasks. Designed to generalize to survey data on different topics, survey_cleaner provides functions to remove duplicate responses, remove unnecessary whitespaces, normalize responses to binary format, and convert ordinal-type responses to numeric data. The package sets up a standardized cleaning framework that can be carried across multiple projects and helps users to reduce manual preprocessing time and minimize errors.</p>
-</section>
-<section id="functions" class="level2">
-<h2 class="anchored" data-anchor-id="functions">Functions</h2>
-<ul>
-<li><code>remove_duplicates</code>: keeps only the latest survey response from each individual.</li>
-<li><code>handle_emptyStrings</code>: handle None, raise TypeError for non-string inputs, collapse all whitespace into single spaces and strip leading/trailing whitespace, and write the corresponding docstring.</li>
-<li><code>normalize_binary</code>: converts binary responses such as True and False, T and F, or Yes and No to a binary format (0 and 1).</li>
-<li><code>word_to_ordinal</code>: gives ranking words such as Best, Better, Good, Bad, Worst a numerical rating so that responses can be organized by their numerical values. Likert scale are set up as default rankings but users can also provide their own rankings.</li>
-</ul>
-</section>
-<section id="python-ecosystem" class="level2">
-<h2 class="anchored" data-anchor-id="python-ecosystem">Python Ecosystem</h2>
-<p>While there are a number of text cleaning packages available on PyPi such as <a href="https://pypi.org/project/clean-text/">clean-text</a> which preprocesses raw text data on the web, there is no package that is specifically dedicated to cleaning survey response data which is something the <code>survey_cleaner</code> package addresses.</p>
-</section>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<p>You can install the latest release of survey_cleaner from TestPyPI using pip:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install <span class="at">--index-url</span> https://test.pypi.org/simple/ <span class="at">--extra-index-url</span> https://pypi.org/simple/ survey_cleaner</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="usage-examples" class="level2">
-<h2 class="anchored" data-anchor-id="usage-examples">Usage Examples:</h2>
-<section id="clean-whitespace" class="level3">
-<h3 class="anchored" data-anchor-id="clean-whitespace">Clean Whitespace</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> survey_cleaner <span class="im">import</span> handle_emptyStrings</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Removes leading/trailing whitespace and collapses multiple spaces</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'comments'</span>: [<span class="st">'  too many   spaces  '</span>, <span class="st">'normal text'</span>, <span class="st">'   leading'</span>]})</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'comments'</span>] <span class="op">=</span> handle_emptyStrings(df[<span class="st">'comments'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="normalize-binary-responses" class="level3">
-<h3 class="anchored" data-anchor-id="normalize-binary-responses">Normalize Binary Responses</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> survey_cleaner <span class="im">import</span> normalize_binary</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Converts Yes/No, True/False, T/F to 1/0</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'response'</span>: [<span class="st">'Yes'</span>, <span class="st">'No'</span>, <span class="st">'Yes'</span>]})</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'response'</span>] <span class="op">=</span> df[<span class="st">'response'</span>].<span class="bu">apply</span>(normalize_binary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="convert-ordinal-responses-to-numeric" class="level3">
-<h3 class="anchored" data-anchor-id="convert-ordinal-responses-to-numeric">Convert Ordinal Responses to Numeric</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> survey_cleaner <span class="im">import</span> word_to_ordinal</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>feedback <span class="op">=</span> pd.Series([<span class="st">"strongly agree"</span>, <span class="st">"agree"</span>, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"neither agree nor disagree"</span>, <span class="st">"disagree"</span>])</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Customized mapping, warnning for unmapped values</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>word_to_ordinal(feedback, mapping<span class="op">=</span>{<span class="st">"strongly agree"</span>: <span class="dv">5</span>, <span class="st">"Bad"</span>: <span class="dv">0</span>})</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Using default Likert scale</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>word_to_ordinal(feedback, likert<span class="op">=</span><span class="st">"agreement"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="remove-duplicate-responses" class="level3">
-<h3 class="anchored" data-anchor-id="remove-duplicate-responses">Remove Duplicate Responses</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> survey_cleaner <span class="im">import</span> remove_duplicates</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>responses <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">'respondent_id'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>],</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">'completed_at'</span>: [<span class="st">'2024-01-01 10:00'</span>, <span class="st">'2024-01-01 11:00'</span>, </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'2024-01-01 12:00'</span>, <span class="st">'2024-01-01 13:00'</span>],</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>     <span class="st">'answer'</span>: [<span class="st">'Yes'</span>, <span class="st">'No'</span>, <span class="st">'Maybe'</span>, <span class="st">'Yes'</span>]</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a> })</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>clean_responses <span class="op">=</span> remove_duplicates(responses, <span class="st">'respondent_id'</span>, <span class="st">'completed_at'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="developer-setup" class="level2">
-<h2 class="anchored" data-anchor-id="developer-setup">Developer Setup</h2>
-<p>Clone the repository to your local:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/UBC-MDS/DSCI_524_group35_survey_cleaner.git</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd DSCI_524_group35_survey_cleaner</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>It is recommended but not required to use the environment file to create a conda environment:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda env create <span class="at">-f</span> environment.yml</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda activate survey_cleaner</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You can install this package in development mode</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install <span class="at">-e</span> <span class="st">".[docs]"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Run the test suite:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pytest tests/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="build-documentation" class="level2">
-<h2 class="anchored" data-anchor-id="build-documentation">Build Documentation</h2>
-<section id="building-documentation-locally" class="level3">
-<h3 class="anchored" data-anchor-id="building-documentation-locally">Building Documentation Locally</h3>
-<p>Install documentation dependencies</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install <span class="at">-e</span> <span class="st">".[docs]"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Generate API documentation using quartodoc</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quartodoc</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Preview the documentation</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Render the final HTML output</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="deploy-documentation" class="level2">
-<h2 class="anchored" data-anchor-id="deploy-documentation">Deploy Documentation</h2>
-<section id="workflow-overview" class="level3">
-<h3 class="anchored" data-anchor-id="workflow-overview">Workflow Overview</h3>
+<section id="tutorial-cleaning-a-survey-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="tutorial-cleaning-a-survey-dataset">Tutorial: Cleaning a Survey Dataset</h2>
+<p>This tutorial demonstrates how to clean a small survey dataset using all functions in <code>survey_cleaner</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> survey_cleaner <span class="im">import</span> (</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    handle_emptyStrings,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    normalize_binary,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    word_to_ordinal,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    remove_duplicates</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Example raw survey data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"respondent_id"</span>: [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"completed_at"</span>: [</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2024-01-01 10:00"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2024-01-01 11:00"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2024-01-01 12:00"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2024-01-01 13:00"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"satisfaction"</span>: [</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"  strongly agree "</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Agree"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">" disagree "</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Neither agree nor disagree"</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"recommend"</span>: [<span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"True"</span>]</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected Output:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 35%">
-<col style="width: 32%">
-<col style="width: 32%">
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 40%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Workflow</th>
-<th>Trigger</th>
-<th>Purpose</th>
+<th>respondent_id</th>
+<th>completed_at</th>
+<th>satisfaction</th>
+<th>recommend</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>build.yml</code></td>
-<td>Push/PR to main</td>
-<td>Runs tests and builds package</td>
+<td>1</td>
+<td>2024-01-01 10:00</td>
+<td>” strongly agree ”</td>
+<td>Yes</td>
 </tr>
 <tr class="even">
-<td><code>deploy.yml</code></td>
-<td>Push to main (after tests pass)</td>
-<td>Deploys package to TestPyPI</td>
+<td>1</td>
+<td>2024-01-01 11:00</td>
+<td>Agree</td>
+<td>No</td>
 </tr>
 <tr class="odd">
-<td><code>quartodoc.yml</code></td>
-<td>Push/PR to main</td>
-<td>Builds API documentation with quartodoc</td>
+<td>2</td>
+<td>2024-01-01 12:00</td>
+<td>” disagree ”</td>
+<td>Yes</td>
 </tr>
 <tr class="even">
-<td><code>quartodoc-publish.yml</code></td>
-<td>Push to main</td>
-<td>Publishes documentation to GitHub Pages</td>
+<td>3</td>
+<td>2024-01-01 13:00</td>
+<td>Neither agree nor disagree</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<section id="step-1-clean-whitespace" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-clean-whitespace">Step 1: Clean whitespace</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"satisfaction"</span>] <span class="op">=</span> df[<span class="st">"satisfaction"</span>].<span class="bu">apply</span>(handle_emptyStrings)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected Output:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 40%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>respondent_id</th>
+<th>completed_at</th>
+<th>satisfaction</th>
+<th>recommend</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2024-01-01 10:00</td>
+<td>strongly agree</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2024-01-01 11:00</td>
+<td>Agree</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>2024-01-01 12:00</td>
+<td>disagree</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2024-01-01 13:00</td>
+<td>Neither agree nor disagree</td>
+<td>True</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="documentation-build-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="documentation-build-workflow">Documentation Build Workflow</h3>
-<p>The <code>quartodoc.yml</code> workflow automatically:</p>
-<ol type="1">
-<li><p>Checks out the repository</p></li>
-<li><p>Sets up Python environement</p></li>
-<li><p>Installs package with Document dependencies</p></li>
-<li><p>Runs <code>quartodoc build</code> to generate API docs</p></li>
-<li><p>Validates the documentation build</p></li>
-</ol>
+<section id="step-2-normalize-binary-responses" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-normalize-binary-responses">Step 2: Normalize binary responses</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"recommend"</span>] <span class="op">=</span> df[<span class="st">"recommend"</span>].<span class="bu">apply</span>(normalize_binary)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected Output:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 40%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>respondent_id</th>
+<th>completed_at</th>
+<th>satisfaction</th>
+<th>recommend</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2024-01-01 10:00</td>
+<td>strongly agree</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2024-01-01 11:00</td>
+<td>Agree</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>2024-01-01 12:00</td>
+<td>disagree</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2024-01-01 13:00</td>
+<td>Neither agree nor disagree</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="documentation-publish-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="documentation-publish-workflow">Documentation Publish Workflow</h3>
-<p>The <code>quartodoc-publish.yml</code> workflow automatically</p>
-<ol type="1">
-<li><p>Builds the documentation using Quarto</p></li>
-<li><p>Deploys to GitHub Pages when changes are pushed to <code>main</code></p></li>
-<li><p>Makes documentation available to GitHub Pages URL</p></li>
-</ol>
+<section id="step-3-convert-ordinal-responses-to-numeric" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-convert-ordinal-responses-to-numeric">Step 3: Convert ordinal responses to numeric</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"satisfaction_score"</span>] <span class="op">=</span> word_to_ordinal(df[<span class="st">"satisfaction"</span>], likert<span class="op">=</span><span class="st">"agreement"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected Output:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 31%">
+<col style="width: 10%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>respondent_id</th>
+<th>completed_at</th>
+<th>satisfaction</th>
+<th>recommend</th>
+<th>satisfaction_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2024-01-01 10:00</td>
+<td>strongly agree</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2024-01-01 11:00</td>
+<td>Agree</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>2024-01-01 12:00</td>
+<td>disagree</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2024-01-01 13:00</td>
+<td>Neither agree nor disagree</td>
+<td>1</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="viewing-published-documentation" class="level3">
-<h3 class="anchored" data-anchor-id="viewing-published-documentation">Viewing Published Documentation</h3>
-<p>Once deployed, documentation is available at: - GitHub Pages: <a href="https://ubc-mds.github.io/DSCI_524_group35_survey_cleaner/" class="uri">https://ubc-mds.github.io/DSCI_524_group35_survey_cleaner/</a></p>
-</section>
-</section>
-<section id="contributing" class="level2">
-<h2 class="anchored" data-anchor-id="contributing">Contributing</h2>
-<p>Interested in contributing? Check out the <a href="./CONTRIBUTING.html">contributing guidelines</a>. Please note that this project is released with a <a href="./CODE_OF_CONDUCT.html">Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
-</section>
-<section id="contributors" class="level2">
-<h2 class="anchored" data-anchor-id="contributors">Contributors</h2>
-<p>Natalie Truesdell, Amanpreet Binepal, Jay Li, Junli</p>
-</section>
-<section id="copyright" class="level2">
-<h2 class="anchored" data-anchor-id="copyright">Copyright</h2>
-<ul>
-<li>Copyright © 2026 Natalie Truesdell, Amanpreet Binepal, Jay Li, Junli.</li>
-<li>Free software distributed under the <a href="./LICENSE">MIT License</a>.</li>
-</ul>
+<section id="step-4-remove-duplicate-responses" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-remove-duplicate-responses">Step 4: Remove duplicate responses</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> remove_duplicates(df, <span class="st">"respondent_id"</span>, <span class="st">"completed_at"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected Output:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 31%">
+<col style="width: 10%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>respondent_id</th>
+<th>completed_at</th>
+<th>satisfaction</th>
+<th>recommend</th>
+<th>satisfaction_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2024-01-01 11:00</td>
+<td>Agree</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2024-01-01 12:00</td>
+<td>disagree</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2024-01-01 13:00</td>
+<td>Neither agree nor disagree</td>
+<td>1</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
