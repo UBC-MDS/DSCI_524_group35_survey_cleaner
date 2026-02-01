@@ -1,9 +1,14 @@
 import pandas as pd
 
-def remove_duplicates(responses, id_col, datetime_col):
+
+def remove_duplicates(
+    responses: pd.DataFrame,
+    id_col: str,
+    datetime_col: str
+) -> pd.DataFrame:
     """
     Remove duplicate responses from a DataFrame containing survey data.
-    
+
     Parameters
     ----------
     responses : pd.DataFrame
@@ -11,14 +16,27 @@ def remove_duplicates(responses, id_col, datetime_col):
     id_col : str
         Name of the column with the unique identifiers.
     datetime_col : str
-        Name of the column containing the datetime when the survey was completed.
+        Name of the column containing
+        the datetime when the survey was completed.
 
     Returns
     -------
     pd.DataFrame
         Cleaned, shuffled survey data containing only the most recent entry from each individual.
-        
-      
+
+    Raises
+    ------
+    TypeError
+        If `responses` is not a pandas DataFrame.
+        If `id_col` is not a string.
+        If `datetime_col` is not a string.
+    KeyError
+        If `id_col` does not exist in the DataFrame columns.
+        If `datetime_col` does not exist in the DataFrame columns.
+    ValueError
+        If `id_col` contains null values.
+
+
     Examples
     --------
     >>> import pandas as pd
@@ -47,7 +65,8 @@ def remove_duplicates(responses, id_col, datetime_col):
     if id_col not in responses.columns:
         raise KeyError(f"id_col '{id_col}' doesn't exist in the DataFrame")
     if datetime_col not in responses.columns:
-        raise KeyError(f"datetime_col '{datetime_col}' doesn't exist in the DataFrame")
+        raise KeyError(
+            f"datetime_col '{datetime_col}' doesn't exist in the DataFrame")
 
     # defensive programming
     if responses.empty:
@@ -57,15 +76,15 @@ def remove_duplicates(responses, id_col, datetime_col):
 
     # get rid of duplicates
     no_dups_df = responses.sort_values(
-        by = datetime_col
-        ).drop_duplicates(
-            subset=[id_col], 
-            keep="last"
-        )
+        by=datetime_col
+    ).drop_duplicates(
+        subset=[id_col],
+        keep="last"
+    )
 
     # return df as randomized instead of sorted
     shuffled_df = no_dups_df.sample(
-        frac=1, 
+        frac=1,
         random_state=524
     ).reset_index(drop=True)
 
