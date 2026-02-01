@@ -60,7 +60,7 @@ import pandas as pd
 from survey_cleaner import handle_emptyStrings
 
 # Removes leading/trailing whitespace and collapses multiple spaces
-df['comments'] = handle_emptyStrings(df['comments'])
+df['comments'] = df['comments'].apply(handle_emptyStrings)
 ```
 ### Normalize Binary Responses
 ```python
@@ -74,6 +74,8 @@ df['response'] = df['response'].apply(normalize_binary)
 ### Convert Ordinal Responses to Numeric
 ```python
 from survey_cleaner import word_to_ordinal
+import pandas as pd
+
 feedback = pd.Series(["strongly agree", "agree", 
                      "neither agree nor disagree", "disagree"])
 
